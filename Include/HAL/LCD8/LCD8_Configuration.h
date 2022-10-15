@@ -1,0 +1,83 @@
+/*
+ * LCD_Configuration.h
+ *
+ *  Created on: Oct 13, 2022
+ *      Author: User
+ */
+
+#ifndef INCLUDE_HAL_LCD8_LCD8_CONFIGURATION_H_
+#define INCLUDE_HAL_LCD8_LCD8_CONFIGURATION_H_
+
+#define LCD_DATA_PORT    PORTD
+#define LCD_CONTROL_PORT PORTC
+
+#define RS_PIN PIN0
+#define RW_PIN PIN1
+#define E_PIN  PIN2
+
+/*
+Options:-
+    NOT_8_BIT_MODE
+    THE_8_BIT_MODE
+*/
+#define DATA_LENGTH THE_8_BIT_MODE
+
+/*
+Options:-
+    ONE_LINE
+    TWO_LINE
+*/
+#define LCD_LINE_NO TWO_LINE
+
+/*
+Options:-
+    DOTS_5_7
+    DOTS_5_10
+*/
+#define LCD_FONT DOTS_5_7
+
+/*
+Options:-           (FOR DD RAM)
+    DISPLAY_OFF
+    DISPLAY_ON
+*/
+#define DISPLAY_STATUS DISPLAY_ON
+
+/*
+Options:- 
+    CURSOR_OFF
+    CURSOR_ON
+*/
+#define CURSOR_STATUS CURSOR_OFF
+
+/*
+Options:-
+    CURSOR_BLANK_OFF
+    CURSOR_BLANK_ON 
+*/
+#define CURSOR_BLANK_STATUS CURSOR_BLANK_OFF
+
+/*
+Options:-
+    ID_DECREASE
+    ID_INCREASE
+*/
+#define ID_STATUS ID_INCREASE
+
+/*
+Options:-
+    SHIFT_DISPLAY_OFF
+    SHIFT_DISPLAY_ON
+*/
+#define SHIFT_DISPLAY SHIFT_DISPLAY_OFF
+
+
+#define LCD_ROW_ONE 1
+#define LCD_ROW_TWO 2
+
+//intiaion
+#define FUNCTION_SET CONC_BIT(0,0,1,DATA_LENGTH,LCD_LINE_NO,LCD_FONT,0,0)
+#define ON_OFF_CONTROL CONC_BIT(0,0,0,0,1,DISPLAY_STATUS,CURSOR_STATUS,CURSOR_BLANK_STATUS)
+#define DISPLAY_CLEAR 0b00000001
+#define ENTRY_MODE_SET CONC_BIT(0,0,0,0,0,1,ID_STATUS,SHIFT_DISPLAY)
+#endif /* INCLUDE_HAL_LCD8_LCD8_CONFIGURATION_H_ */

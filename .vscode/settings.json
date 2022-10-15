@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "dio_configuration.h": "c",
+        "bit_math.h": "c",
+        "std_types.h": "c",
+        "dio_private.h": "c",
+        "dio_interface.h": "c",
+        "ssd_interface.h": "c",
+        "ssd_configuration.h": "c",
+        "ssd_private.h": "c",
+        "lcd_interface.h": "c",
+        "lcd_configuration.h": "c",
+        "lcd_private.h": "c",
+        "lcd8_interface.h": "c",
+        "lcd8_private.h": "c",
+        "lcd8_configuration.h": "c",
+        "lcd4_interface.h": "c",
+        "lcd4_configuration.h": "c",
+        "lcd4_private.h": "c"
+    }
+}
