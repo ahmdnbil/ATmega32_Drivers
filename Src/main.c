@@ -28,9 +28,24 @@
 void main(void)
 {
     MDIO_voidInit();
-    HLCD8_voidInit();
-    HLCD8_voidDisplayNumber(5534);
+    HLCD4_voidInit();
+    HLCD4_voidGoToPos(1,1);
+    HLCD4_voidSendString("Ahmed");
+    HLCD4_voidGoToPos(2,1);
+    HLCD4_voidDisplayNumber(2324);
 
+    u8 teleChar[] = {
+    0b11111,
+    0b00100,
+    0b00100,
+    0b00100,
+    0b00100,
+    0b10000,
+    0b11111,
+    0b10000
+    };
+    HLCD4_voidStoreCustomChar(teleChar,0);
+    HLCD4_voidDisplayCustomChar(0,2,10);
     while(1)
     {
 

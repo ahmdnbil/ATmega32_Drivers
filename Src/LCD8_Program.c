@@ -81,15 +81,34 @@ void HLCD8_voidSendString(u8 * A_Pu8String)
 
 void HLCD8_voidGoToPos(u8 A_u8RowNum,u8 A_u8ColNum)
 {
-    switch (A_u8RowNum)
-    {
-    case LCD_ROW_ONE:
-    HLCD8_voidSendCommand(LCD_ROW1_ADDRESS+A_u8ColNum);
-        break;
+    // switch (A_u8RowNum)
+    // {
+    // case LCD_ROW_ONE:
+    // HLCD8_voidSendCommand(LCD_ROW1_ADDRESS+A_u8ColNum);
+    //     break;
     
-    case LCD_ROW_TWO:
-    HLCD8_voidSendCommand(LCD_ROW2_ADDRESS+A_u8ColNum);
+    // case LCD_ROW_TWO:
+    // HLCD8_voidSendCommand(LCD_ROW2_ADDRESS+A_u8ColNum);
+    //     break;
+    // }
+    // _delay_ms(1);
+    /************************************************************/ 
+    //Second method
+	u8 local_u8Address;
+    switch(A_u8RowNum)
+    {
+        case LCD_ROW_ONE:
+        local_u8Address=FIRST_ROW_ADDRESS + A_u8ColNum -1;
+        SET_BIT(local_u8Address,PIN7);
+        HLCD8_voidSendCommand(local_u8Address);
         break;
+
+        case LCD_ROW_TWO:
+        local_u8Address=SECOND_ROW_ADDRESS + A_u8ColNum;
+        SET_BIT(local_u8Address,PIN7);
+        HLCD8_voidSendCommand(local_u8Address);
+        break;
+
     }
     _delay_ms(1);
 
@@ -122,6 +141,7 @@ void HLCD8_voidDisplayNumber(u32 A_u32Number)
     // itoa(A_u32Number,local_u8NumToStr,10);
     // HLCD8_voidSendString(local_u8NumToStr);
     //****************************************************//
+    //third method: it will deal with zero unlike the first method so it's not problem here
     u32 local_u32Number=1;
     if(A_u32Number==0)
     {
@@ -138,4 +158,30 @@ void HLCD8_voidDisplayNumber(u32 A_u32Number)
         HLCD8_voidSendData((local_u32Number%10)+48);
         local_u32Number=local_u32Number/10;
     }
+}
+
+void HLCD8_voidStoreCustomChar(u8 * A_u8Pattern,u8 A_u8CGRAMIndex)
+{
+    u8 local_u8Address;
+    if(A_u8CGRAMIndex<8)
+    {
+        A_u8CGRAMIndex=A_u8CGRAMIndex*8;
+        SET_BIT(A_u8CGRAMIndex,PIN6);
+        CLR_BIT(A_u8CGRAMIndex,PIN7);
+        HLCD8_voidSendCommand(A_u8CGRAMIndex);
+        for(u8 i=0;i<8;i++)
+        {
+            HLCD8_voidSendData(A_u8Pattern[i]);
+            _delay_us(60);
+        }
+    }
+    HLCD8_voidSendCommand(RETURN_HOME);
+    _delay_ms(2);
+
+}
+
+void HLCD8_voidDisplayCustomChar(u8 A_u8CGRAMIndex,u8 A_u8Row,u8 A_u8Col)
+{
+    HLCD8_voidGoToPos(A_u8Row,A_u8Col);
+    HLCD8_voidSendData(A_u8CGRAMIndex);
 }
