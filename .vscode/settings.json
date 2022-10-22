@@ -17,6 +17,8 @@
       "lcd4_interface.h": "c",
       "lcd4_configuration.h": "c",
       "lcd4_private.h": "c",
-      "math.h": "c"
+      "math.h": "c",
+      "keypad_configuration.h": "c",
+      "keypad_private.h": "c"
     }
 }
