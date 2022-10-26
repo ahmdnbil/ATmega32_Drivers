@@ -9,7 +9,9 @@ Src/main.o Src/main.o: ../Src/main.c ../Src/../Include/LIB/BIT_MATH.h \
   ../Src/../Include/HAL/LCD4/LCD4_Configuration.h \
   ../Src/../Include/HAL/LCD4/LCD4_Interface.h \
   ../Src/../Include/HAL/KEYPAD/KEYPAD_Interface.h \
-  ../Src/../Include/HAL/KEYPAD/KEYPAD_Configuration.h
+  ../Src/../Include/HAL/KEYPAD/KEYPAD_Configuration.h \
+  ../Src/../Include/HAL/DCMOTOR/DCMOTOR_Interface.h \
+  ../Src/../Include/HAL/DCMOTOR/DCMOTOR_Configuration.h
 
 ../Src/../Include/LIB/BIT_MATH.h:
 
@@ -34,3 +36,7 @@ Src/main.o Src/main.o: ../Src/main.c ../Src/../Include/LIB/BIT_MATH.h \
 ../Src/../Include/HAL/KEYPAD/KEYPAD_Interface.h:
 
 ../Src/../Include/HAL/KEYPAD/KEYPAD_Configuration.h:
+
+../Src/../Include/HAL/DCMOTOR/DCMOTOR_Interface.h:
+
+../Src/../Include/HAL/DCMOTOR/DCMOTOR_Configuration.h:

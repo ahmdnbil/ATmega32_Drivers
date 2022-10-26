@@ -19,6 +19,9 @@
       "lcd4_private.h": "c",
       "math.h": "c",
       "keypad_configuration.h": "c",
-      "keypad_private.h": "c"
+      "keypad_private.h": "c",
+      "dcmotor_configuration.h": "c",
+      "dcmotor_private.h": "c",
+      "dcmotor_interface.h": "c"
     }
 }

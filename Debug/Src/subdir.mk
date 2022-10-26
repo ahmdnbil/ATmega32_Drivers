@@ -4,6 +4,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Src/DCMOTOR_Program.c \
 ../Src/DIO_Program.c \
 ../Src/KEYPAD_Program.c \
 ../Src/LCD4_Program.c \
@@ -12,6 +13,7 @@ C_SRCS += \
 ../Src/main.c 
 
 OBJS += \
+./Src/DCMOTOR_Program.o \
 ./Src/DIO_Program.o \
 ./Src/KEYPAD_Program.o \
 ./Src/LCD4_Program.o \
@@ -20,6 +22,7 @@ OBJS += \
 ./Src/main.o 
 
 C_DEPS += \
+./Src/DCMOTOR_Program.d \
 ./Src/DIO_Program.d \
 ./Src/KEYPAD_Program.d \
 ./Src/LCD4_Program.d \
