@@ -34,13 +34,20 @@
 #include "../Include/HAL/DCMOTOR/DCMOTOR_Interface.h"
 #include "../Include/HAL/DCMOTOR/DCMOTOR_Configuration.h"
 
+//Stepper_Motor
+#include "../Include/HAL/STEPPER/STEPPER_Interface.h"
+#include "../Include/HAL/STEPPER/STEPPER_Configuration.h"
+
+
 void main(void)
 {
     u8 local_u8PressedKey;
     MDIO_voidInit();
     MDIO_voidSetPinDirection(PORTA,PIN0,PIN_HIGH);
-    MDIO_voidSetPinDirection(PORTA,PIN1,PIN_LOW);
-    MDIO_voidSetPinValue(PORTA,PIN1,PIN_HIGH);
+	MDIO_voidSetPinDirection(PORTA,PIN1,PIN_HIGH);
+	MDIO_voidSetPinDirection(PORTA,PIN2,PIN_HIGH);
+	MDIO_voidSetPinDirection(PORTA,PIN3,PIN_HIGH);
+
 //    HLCD4_voidInit();
     //LCD
 //    HLCD4_voidGoToPos(1,1);
@@ -58,7 +65,7 @@ void main(void)
 //            HLCD4_voidSendData(local_u8PressedKey);
 //        }
 
-    HDCMOTOR_voidHBridge();
+    HSTEP_voidFullStep();
 
     }
 }

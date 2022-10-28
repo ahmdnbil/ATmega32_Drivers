@@ -1,0 +1,23 @@
+/*
+ * STEPPER_Configuration.h
+ *
+ *  Created on: Oct 28, 2022
+ *      Author: User
+ */
+
+#ifndef INCLUDE_HAL_STEPPER_STEPPER_CONFIGURATION_H_
+#define INCLUDE_HAL_STEPPER_STEPPER_CONFIGURATION_H_
+
+
+#define STEPPER_PORT PORTA
+
+#define BLUE_COIL_PIN   PIN0
+#define PINK_COIL_PIN   PIN1
+#define YELLOW_COIL_PIN PIN2
+#define ORANGE_COIL_PIN PIN3
+
+#define NO_OF_STEPS_FOR_360 2048
+#define CIRCLE_ANGLE 360
+#define NO_OF_COILS 4
+
+#endif /* INCLUDE_HAL_STEPPER_STEPPER_CONFIGURATION_H_ */

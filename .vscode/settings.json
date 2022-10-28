@@ -22,6 +22,9 @@
       "keypad_private.h": "c",
       "dcmotor_configuration.h": "c",
       "dcmotor_private.h": "c",
-      "dcmotor_interface.h": "c"
+      "dcmotor_interface.h": "c",
+      "stepper_configuration.h": "c",
+      "stepper_interface.h": "c",
+      "stepper_private.h": "c"
     }
 }

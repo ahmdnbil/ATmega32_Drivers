@@ -11,7 +11,9 @@ Src/main.o Src/main.o: ../Src/main.c ../Src/../Include/LIB/BIT_MATH.h \
   ../Src/../Include/HAL/KEYPAD/KEYPAD_Interface.h \
   ../Src/../Include/HAL/KEYPAD/KEYPAD_Configuration.h \
   ../Src/../Include/HAL/DCMOTOR/DCMOTOR_Interface.h \
-  ../Src/../Include/HAL/DCMOTOR/DCMOTOR_Configuration.h
+  ../Src/../Include/HAL/DCMOTOR/DCMOTOR_Configuration.h \
+  ../Src/../Include/HAL/STEPPER/STEPPER_Interface.h \
+  ../Src/../Include/HAL/STEPPER/STEPPER_Configuration.h
 
 ../Src/../Include/LIB/BIT_MATH.h:
 
@@ -40,3 +42,7 @@ Src/main.o Src/main.o: ../Src/main.c ../Src/../Include/LIB/BIT_MATH.h \
 ../Src/../Include/HAL/DCMOTOR/DCMOTOR_Interface.h:
 
 ../Src/../Include/HAL/DCMOTOR/DCMOTOR_Configuration.h:
+
+../Src/../Include/HAL/STEPPER/STEPPER_Interface.h:
+
+../Src/../Include/HAL/STEPPER/STEPPER_Configuration.h:

@@ -10,6 +10,7 @@ C_SRCS += \
 ../Src/LCD4_Program.c \
 ../Src/LCD8_Program.c \
 ../Src/SSD_Program.c \
+../Src/STEPPER_Program.c \
 ../Src/main.c 
 
 OBJS += \
@@ -19,6 +20,7 @@ OBJS += \
 ./Src/LCD4_Program.o \
 ./Src/LCD8_Program.o \
 ./Src/SSD_Program.o \
+./Src/STEPPER_Program.o \
 ./Src/main.o 
 
 C_DEPS += \
@@ -28,6 +30,7 @@ C_DEPS += \
 ./Src/LCD4_Program.d \
 ./Src/LCD8_Program.d \
 ./Src/SSD_Program.d \
+./Src/STEPPER_Program.d \
 ./Src/main.d 
 
 
