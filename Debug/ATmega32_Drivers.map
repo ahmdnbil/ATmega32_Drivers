@@ -7,7 +7,7 @@ d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgc
 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
                               ./Src/KEYPAD_Program.o (__do_copy_data)
 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
-                              ./Src/LCD4_Program.o (__do_clear_bss)
+                              ./Src/EXTI_Program.o (__do_clear_bss)
 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fixunssfsi.o)
                               ./Src/DCMOTOR_Program.o (__fixunssfsi)
 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_addsub_sf.o)
@@ -53,6 +53,8 @@ Linker script and memory map
 LOAD d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
 LOAD ./Src/DCMOTOR_Program.o
 LOAD ./Src/DIO_Program.o
+LOAD ./Src/EXTI_Program.o
+LOAD ./Src/GI_Program.o
 LOAD ./Src/KEYPAD_Program.o
 LOAD ./Src/LCD4_Program.o
 LOAD ./Src/LCD8_Program.o
@@ -153,7 +155,7 @@ LOAD d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x400c
+.text           0x00000000     0x4ac2
  *(.vectors)
  .vectors       0x00000000       0x54 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -209,11 +211,9 @@ LOAD d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\
  *(.init9)
  *(.text)
  .text          0x0000008e        0x4 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
-                0x0000008e                __vector_1
                 0x0000008e                __vector_12
                 0x0000008e                __bad_interrupt
                 0x0000008e                __vector_6
-                0x0000008e                __vector_3
                 0x0000008e                __vector_11
                 0x0000008e                __vector_13
                 0x0000008e                __vector_17
@@ -222,7 +222,6 @@ LOAD d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\
                 0x0000008e                __vector_5
                 0x0000008e                __vector_4
                 0x0000008e                __vector_9
-                0x0000008e                __vector_2
                 0x0000008e                __vector_15
                 0x0000008e                __vector_8
                 0x0000008e                __vector_14
@@ -232,6 +231,8 @@ LOAD d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\
                 0x0000008e                __vector_20
  .text          0x00000092        0x0 ./Src/DCMOTOR_Program.o
  .text          0x00000092        0x0 ./Src/DIO_Program.o
+ .text          0x00000092        0x0 ./Src/EXTI_Program.o
+ .text          0x00000092        0x0 ./Src/GI_Program.o
  .text          0x00000092        0x0 ./Src/KEYPAD_Program.o
  .text          0x00000092        0x0 ./Src/LCD4_Program.o
  .text          0x00000092        0x0 ./Src/LCD8_Program.o
@@ -274,108 +275,144 @@ LOAD d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\
                 0x00000c9e      0x216 ./Src/DCMOTOR_Program.o
                 0x00000c9e                HDCMOTOR_voidHBridge
  .text.MDIO_voidInit
-                0x00000eb4       0x46 ./Src/DIO_Program.o
+                0x00000eb4       0x48 ./Src/DIO_Program.o
                 0x00000eb4                MDIO_voidInit
  .text.MDIO_u8GetPinValue
-                0x00000efa      0x168 ./Src/DIO_Program.o
-                0x00000efa                MDIO_u8GetPinValue
+                0x00000efc      0x168 ./Src/DIO_Program.o
+                0x00000efc                MDIO_u8GetPinValue
  .text.MDIO_voidSetPinValue
-                0x00001062      0x22c ./Src/DIO_Program.o
-                0x00001062                MDIO_voidSetPinValue
+                0x00001064      0x22c ./Src/DIO_Program.o
+                0x00001064                MDIO_voidSetPinValue
  .text.MDIO_voidSetPinDirection
-                0x0000128e      0x22c ./Src/DIO_Program.o
-                0x0000128e                MDIO_voidSetPinDirection
+                0x00001290      0x22c ./Src/DIO_Program.o
+                0x00001290                MDIO_voidSetPinDirection
  .text.MDIO_voidSetPortValue
-                0x000014ba       0x82 ./Src/DIO_Program.o
-                0x000014ba                MDIO_voidSetPortValue
+                0x000014bc       0x82 ./Src/DIO_Program.o
+                0x000014bc                MDIO_voidSetPortValue
  .text.MDIO_voidSetPortDirection
-                0x0000153c       0x82 ./Src/DIO_Program.o
-                0x0000153c                MDIO_voidSetPortDirection
+                0x0000153e       0x82 ./Src/DIO_Program.o
+                0x0000153e                MDIO_voidSetPortDirection
+ .text.MEXTI_voidConfig
+                0x000015c0       0xe0 ./Src/EXTI_Program.o
+                0x000015c0                MEXTI_voidConfig
+ .text.MEXTI_voidEnable
+                0x000016a0       0x6e ./Src/EXTI_Program.o
+                0x000016a0                MEXTI_voidEnable
+ .text.MEXTI_voidDisable
+                0x0000170e       0x6e ./Src/EXTI_Program.o
+                0x0000170e                MEXTI_voidDisable
+ .text.MEXTI_voidClearFlag
+                0x0000177c       0x6e ./Src/EXTI_Program.o
+                0x0000177c                MEXTI_voidClearFlag
+ .text.MEXTI_voidSetCallBack
+                0x000017ea       0x7a ./Src/EXTI_Program.o
+                0x000017ea                MEXTI_voidSetCallBack
+ .text.__vector_1
+                0x00001864       0x66 ./Src/EXTI_Program.o
+                0x00001864                __vector_1
+ .text.__vector_2
+                0x000018ca       0x66 ./Src/EXTI_Program.o
+                0x000018ca                __vector_2
+ .text.__vector_3
+                0x00001930       0x66 ./Src/EXTI_Program.o
+                0x00001930                __vector_3
+ .text.MGI_voidEnable
+                0x00001996       0x1c ./Src/GI_Program.o
+                0x00001996                MGI_voidEnable
+ .text.MGI_voidDisable
+                0x000019b2       0x1c ./Src/GI_Program.o
+                0x000019b2                MGI_voidDisable
  .text.HKEYPAD_u8GetPressedKey
-                0x000015be      0x1cc ./Src/KEYPAD_Program.o
-                0x000015be                HKEYPAD_u8GetPressedKey
+                0x000019ce      0x1cc ./Src/KEYPAD_Program.o
+                0x000019ce                HKEYPAD_u8GetPressedKey
  .text.HLCD4_voidSendCommand
-                0x0000178a      0x332 ./Src/LCD4_Program.o
-                0x0000178a                HLCD4_voidSendCommand
+                0x00001b9a      0x332 ./Src/LCD4_Program.o
+                0x00001b9a                HLCD4_voidSendCommand
  .text.HLCD4_voidSendData
-                0x00001abc      0x328 ./Src/LCD4_Program.o
-                0x00001abc                HLCD4_voidSendData
+                0x00001ecc      0x328 ./Src/LCD4_Program.o
+                0x00001ecc                HLCD4_voidSendData
  .text.HLCD4_voidInit
-                0x00001de4      0x5aa ./Src/LCD4_Program.o
-                0x00001de4                HLCD4_voidInit
+                0x000021f4      0x5aa ./Src/LCD4_Program.o
+                0x000021f4                HLCD4_voidInit
  .text.HLCD4_voidClearDisplay
-                0x0000238e      0x116 ./Src/LCD4_Program.o
-                0x0000238e                HLCD4_voidClearDisplay
+                0x0000279e      0x116 ./Src/LCD4_Program.o
+                0x0000279e                HLCD4_voidClearDisplay
  .text.HLCD4_voidSendString
-                0x000024a4       0x52 ./Src/LCD4_Program.o
-                0x000024a4                HLCD4_voidSendString
+                0x000028b4       0x52 ./Src/LCD4_Program.o
+                0x000028b4                HLCD4_voidSendString
  .text.HLCD4_voidGoToPos
-                0x000024f6      0x154 ./Src/LCD4_Program.o
-                0x000024f6                HLCD4_voidGoToPos
+                0x00002906      0x154 ./Src/LCD4_Program.o
+                0x00002906                HLCD4_voidGoToPos
  .text.HLCD4_voidDisplayNumber
-                0x0000264a       0xb6 ./Src/LCD4_Program.o
-                0x0000264a                HLCD4_voidDisplayNumber
+                0x00002a5a       0xb6 ./Src/LCD4_Program.o
+                0x00002a5a                HLCD4_voidDisplayNumber
  .text.HLCD4_voidStoreCustomChar
-                0x00002700      0x2e8 ./Src/LCD4_Program.o
-                0x00002700                HLCD4_voidStoreCustomChar
+                0x00002b10      0x2e8 ./Src/LCD4_Program.o
+                0x00002b10                HLCD4_voidStoreCustomChar
  .text.HLCD4_voidDisplayCustomChar
-                0x000029e8       0x2c ./Src/LCD4_Program.o
-                0x000029e8                HLCD4_voidDisplayCustomChar
+                0x00002df8       0x2c ./Src/LCD4_Program.o
+                0x00002df8                HLCD4_voidDisplayCustomChar
  .text.HLCD8_voidSendCommand
-                0x00002a14      0x13c ./Src/LCD8_Program.o
-                0x00002a14                HLCD8_voidSendCommand
+                0x00002e24      0x13c ./Src/LCD8_Program.o
+                0x00002e24                HLCD8_voidSendCommand
  .text.HLCD8_voidSendData
-                0x00002b50      0x13c ./Src/LCD8_Program.o
-                0x00002b50                HLCD8_voidSendData
+                0x00002f60      0x13c ./Src/LCD8_Program.o
+                0x00002f60                HLCD8_voidSendData
  .text.HLCD8_voidInit
-                0x00002c8c      0x3ce ./Src/LCD8_Program.o
-                0x00002c8c                HLCD8_voidInit
+                0x0000309c      0x3ce ./Src/LCD8_Program.o
+                0x0000309c                HLCD8_voidInit
  .text.HLCD8_voidClearDisplay
-                0x0000305a      0x110 ./Src/LCD8_Program.o
-                0x0000305a                HLCD8_voidClearDisplay
+                0x0000346a      0x110 ./Src/LCD8_Program.o
+                0x0000346a                HLCD8_voidClearDisplay
  .text.HLCD8_voidSendString
-                0x0000316a       0x52 ./Src/LCD8_Program.o
-                0x0000316a                HLCD8_voidSendString
+                0x0000357a       0x52 ./Src/LCD8_Program.o
+                0x0000357a                HLCD8_voidSendString
  .text.HLCD8_voidGoToPos
-                0x000031bc      0x154 ./Src/LCD8_Program.o
-                0x000031bc                HLCD8_voidGoToPos
+                0x000035cc      0x154 ./Src/LCD8_Program.o
+                0x000035cc                HLCD8_voidGoToPos
  .text.HLCD8_voidDisplayNumber
-                0x00003310       0xb6 ./Src/LCD8_Program.o
-                0x00003310                HLCD8_voidDisplayNumber
+                0x00003720       0xb6 ./Src/LCD8_Program.o
+                0x00003720                HLCD8_voidDisplayNumber
  .text.HLCD8_voidStoreCustomChar
-                0x000033c6      0x2e8 ./Src/LCD8_Program.o
-                0x000033c6                HLCD8_voidStoreCustomChar
+                0x000037d6      0x2e8 ./Src/LCD8_Program.o
+                0x000037d6                HLCD8_voidStoreCustomChar
  .text.HLCD8_voidDisplayCustomChar
-                0x000036ae       0x2c ./Src/LCD8_Program.o
-                0x000036ae                HLCD8_voidDisplayCustomChar
+                0x00003abe       0x2c ./Src/LCD8_Program.o
+                0x00003abe                HLCD8_voidDisplayCustomChar
  .text.HSSD_voidDisplay
-                0x000036da      0x11a ./Src/SSD_Program.o
-                0x000036da                HSSD_voidDisplay
+                0x00003aea      0x11a ./Src/SSD_Program.o
+                0x00003aea                HSSD_voidDisplay
  .text.HSSD_voidDisplayAscending
-                0x000037f4      0x176 ./Src/SSD_Program.o
-                0x000037f4                HSSD_voidDisplayAscending
+                0x00003c04      0x176 ./Src/SSD_Program.o
+                0x00003c04                HSSD_voidDisplayAscending
  .text.HSSD_voidDisplayDescending
-                0x0000396a      0x15e ./Src/SSD_Program.o
-                0x0000396a                HSSD_voidDisplayDescending
+                0x00003d7a      0x15e ./Src/SSD_Program.o
+                0x00003d7a                HSSD_voidDisplayDescending
  .text.HSTEP_voidFullStep
-                0x00003ac8      0x456 ./Src/STEPPER_Program.o
-                0x00003ac8                HSTEP_voidFullStep
- .text.main     0x00003f1e       0x54 ./Src/main.o
-                0x00003f1e                main
- .text.libgcc   0x00003f72       0x28 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
-                0x00003f72                __udivmodhi4
- .text.libgcc   0x00003f9a        0x0 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00003f9a        0x0 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
- .text.libgcc   0x00003f9a        0x0 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00003f9a       0x38 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00003f9a                __prologue_saves__
- .text.libgcc   0x00003fd2       0x36 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x00003fd2                __epilogue_restores__
-                0x00004008                . = ALIGN (0x2)
+                0x00003ed8      0x456 ./Src/STEPPER_Program.o
+                0x00003ed8                HSTEP_voidFullStep
+ .text.HSTEP_voidMotorAngle
+                0x0000432e      0x4b4 ./Src/STEPPER_Program.o
+                0x0000432e                HSTEP_voidMotorAngle
+ .text.main     0x000047e2       0x2e ./Src/main.o
+                0x000047e2                main
+ .text.toggleLED
+                0x00004810      0x218 ./Src/main.o
+                0x00004810                toggleLED
+ .text.libgcc   0x00004a28       0x28 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_udivmodhi4.o)
+                0x00004a28                __udivmodhi4
+ .text.libgcc   0x00004a50        0x0 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00004a50        0x0 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+ .text.libgcc   0x00004a50        0x0 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00004a50       0x38 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00004a50                __prologue_saves__
+ .text.libgcc   0x00004a88       0x36 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00004a88                __epilogue_restores__
+                0x00004abe                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00004008        0x0 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00004008                exit
-                0x00004008                _exit
+ .fini9         0x00004abe        0x0 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00004abe                exit
+                0x00004abe                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -394,16 +431,18 @@ LOAD d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00004008        0x4 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00004abe        0x4 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000400c                _etext = .
+                0x00004ac2                _etext = .
 
-.data           0x00800060       0x34 load address 0x0000400c
+.data           0x00800060       0x34 load address 0x00004ac2
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
  .data          0x00800060        0x0 ./Src/DCMOTOR_Program.o
  .data          0x00800060        0x0 ./Src/DIO_Program.o
+ .data          0x00800060        0x0 ./Src/EXTI_Program.o
+ .data          0x00800060        0x0 ./Src/GI_Program.o
  .data          0x00800060        0x0 ./Src/KEYPAD_Program.o
  .data          0x00800060        0x0 ./Src/LCD4_Program.o
  .data          0x00800060        0x0 ./Src/LCD8_Program.o
@@ -450,12 +489,14 @@ LOAD d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\
                 0x00800094                _edata = .
                 0x00800094                PROVIDE (__data_end, .)
 
-.bss            0x00800094        0x1
+.bss            0x00800094        0x8
                 0x00800094                PROVIDE (__bss_start, .)
  *(.bss)
  .bss           0x00800094        0x0 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
  .bss           0x00800094        0x0 ./Src/DCMOTOR_Program.o
  .bss           0x00800094        0x0 ./Src/DIO_Program.o
+ .bss           0x00800094        0x0 ./Src/EXTI_Program.o
+ .bss           0x00800094        0x0 ./Src/GI_Program.o
  .bss           0x00800094        0x0 ./Src/KEYPAD_Program.o
  .bss           0x00800094        0x0 ./Src/LCD4_Program.o
  .bss           0x00800094        0x0 ./Src/LCD8_Program.o
@@ -481,19 +522,30 @@ LOAD d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\
  .bss           0x00800094        0x0 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_unpack_sf.o)
  .bss           0x00800094        0x0 d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_fpcmp_parts_sf.o)
  *(.bss*)
+ .bss.EXTI0_CallBack
+                0x00800094        0x2 ./Src/EXTI_Program.o
+                0x00800094                EXTI0_CallBack
+ .bss.EXTI1_CallBack
+                0x00800096        0x2 ./Src/EXTI_Program.o
+                0x00800096                EXTI1_CallBack
+ .bss.EXTI2_CallBack
+                0x00800098        0x2 ./Src/EXTI_Program.o
+                0x00800098                EXTI2_CallBack
  .bss.global_u8Init
-                0x00800094        0x1 ./Src/LCD4_Program.o
+                0x0080009a        0x1 ./Src/LCD4_Program.o
+ .bss.local_u8Flag.1353
+                0x0080009b        0x1 ./Src/main.o
  *(COMMON)
-                0x00800095                PROVIDE (__bss_end, .)
-                0x0000400c                __data_load_start = LOADADDR (.data)
-                0x00004040                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x0080009c                PROVIDE (__bss_end, .)
+                0x00004ac2                __data_load_start = LOADADDR (.data)
+                0x00004af6                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800095        0x0
-                0x00800095                PROVIDE (__noinit_start, .)
+.noinit         0x0080009c        0x0
+                0x0080009c                PROVIDE (__noinit_start, .)
  *(.noinit*)
-                0x00800095                PROVIDE (__noinit_end, .)
-                0x00800095                _end = .
-                0x00800095                PROVIDE (__heap_start, .)
+                0x0080009c                PROVIDE (__noinit_end, .)
+                0x0080009c                _end = .
+                0x0080009c                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -511,27 +563,31 @@ LOAD d:/me/ee/courses/tools/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x3648
+.stab           0x00000000     0x41dc
  *(.stab)
  .stab          0x00000000      0x4e0 ./Src/DCMOTOR_Program.o
  .stab          0x000004e0      0x4c8 ./Src/DIO_Program.o
                                 0x558 (size before relaxing)
- .stab          0x000009a8      0x2e8 ./Src/KEYPAD_Program.o
+ .stab          0x000009a8      0x3fc ./Src/EXTI_Program.o
+                                0x48c (size before relaxing)
+ .stab          0x00000da4      0x144 ./Src/GI_Program.o
+                                0x1d4 (size before relaxing)
+ .stab          0x00000ee8      0x2e8 ./Src/KEYPAD_Program.o
                                 0x504 (size before relaxing)
- .stab          0x00000c90     0x1188 ./Src/LCD4_Program.o
+ .stab          0x000011d0     0x1188 ./Src/LCD4_Program.o
                                0x13a4 (size before relaxing)
- .stab          0x00001e18      0xd98 ./Src/LCD8_Program.o
+ .stab          0x00002358      0xd98 ./Src/LCD8_Program.o
                                 0xfb4 (size before relaxing)
- .stab          0x00002bb0      0x474 ./Src/SSD_Program.o
+ .stab          0x000030f0      0x474 ./Src/SSD_Program.o
                                 0x690 (size before relaxing)
- .stab          0x00003024      0x4bc ./Src/STEPPER_Program.o
-                                0x6d8 (size before relaxing)
- .stab          0x000034e0      0x168 ./Src/main.o
-                                0x1f8 (size before relaxing)
+ .stab          0x00003564      0x900 ./Src/STEPPER_Program.o
+                                0xb1c (size before relaxing)
+ .stab          0x00003e64      0x378 ./Src/main.o
+                                0x594 (size before relaxing)
 
-.stabstr        0x00000000      0xf68
+.stabstr        0x00000000     0x11a5
  *(.stabstr)
- .stabstr       0x00000000      0xf68 ./Src/DCMOTOR_Program.o
+ .stabstr       0x00000000     0x11a5 ./Src/DCMOTOR_Program.o
 
 .stab.excl
  *(.stab.excl)

@@ -25,6 +25,12 @@
       "dcmotor_interface.h": "c",
       "stepper_configuration.h": "c",
       "stepper_interface.h": "c",
-      "stepper_private.h": "c"
+      "stepper_private.h": "c",
+      "exti_configuration.h": "c",
+      "exti_private.h": "c",
+      "exti_interface.h": "c",
+      "gi_interface.h": "c",
+      "gi_private.h": "c",
+      "gi_configuration.h": "c"
     }
 }

@@ -11,8 +11,12 @@
 
 //DIO
 #include "../Include/MCAL/DIO/DIO_Interface.h"
-#include "../Include/MCAL/DIO/DIO_Configuration.h"
 
+//EXTI
+#include "../Include/MCAL/EXTI/EXTI_Interface.h"
+
+//GI
+#include "../Include/MCAL/GI/GI_Interface.h"
 //SSD
 #include "../Include/HAL/SSD/SSD_Interface.h"
 #include "../Include/HAL/SSD/SSD_Configuration.h"
@@ -38,15 +42,17 @@
 #include "../Include/HAL/STEPPER/STEPPER_Interface.h"
 #include "../Include/HAL/STEPPER/STEPPER_Configuration.h"
 
+#include <util/delay.h>
 
+void toggleLED(void);
 void main(void)
 {
     u8 local_u8PressedKey;
     MDIO_voidInit();
-    MDIO_voidSetPinDirection(PORTA,PIN0,PIN_HIGH);
-	MDIO_voidSetPinDirection(PORTA,PIN1,PIN_HIGH);
-	MDIO_voidSetPinDirection(PORTA,PIN2,PIN_HIGH);
-	MDIO_voidSetPinDirection(PORTA,PIN3,PIN_HIGH);
+    MGI_voidEnable();
+    MEXTI_voidConfig(EXTI0,FALLING_EDGE);
+    MEXTI_voidSetCallBack(EXTI0,toggleLED);
+    MEXTI_voidEnable(EXTI0);
 
 //    HLCD4_voidInit();
     //LCD
@@ -58,14 +64,23 @@ void main(void)
 //    HLCD4_voidGoToPos(2,1);
     while(1)
     {
-    	//keypad
-//        local_u8PressedKey=HKEYPAD_u8GetPressedKey();
-//        if(local_u8PressedKey!=KEY_NOT_PRESSED)
-//        {
-//            HLCD4_voidSendData(local_u8PressedKey);
-//        }
 
-    HSTEP_voidFullStep();
 
     }
+}
+
+void toggleLED(void)
+{
+	static u8 local_u8Flag=0;
+	if(local_u8Flag)
+	{
+		local_u8Flag=0;
+		MDIO_voidSetPinValue(PORTA,PIN0,PIN_HIGH);
+		_delay_ms(100);
+	}else
+	{
+		local_u8Flag=1;
+		MDIO_voidSetPinValue(PORTA,PIN0,PIN_LOW);
+		_delay_ms(100);
+	}
 }

@@ -6,6 +6,8 @@
 C_SRCS += \
 ../Src/DCMOTOR_Program.c \
 ../Src/DIO_Program.c \
+../Src/EXTI_Program.c \
+../Src/GI_Program.c \
 ../Src/KEYPAD_Program.c \
 ../Src/LCD4_Program.c \
 ../Src/LCD8_Program.c \
@@ -16,6 +18,8 @@ C_SRCS += \
 OBJS += \
 ./Src/DCMOTOR_Program.o \
 ./Src/DIO_Program.o \
+./Src/EXTI_Program.o \
+./Src/GI_Program.o \
 ./Src/KEYPAD_Program.o \
 ./Src/LCD4_Program.o \
 ./Src/LCD8_Program.o \
@@ -26,6 +30,8 @@ OBJS += \
 C_DEPS += \
 ./Src/DCMOTOR_Program.d \
 ./Src/DIO_Program.d \
+./Src/EXTI_Program.d \
+./Src/GI_Program.d \
 ./Src/KEYPAD_Program.d \
 ./Src/LCD4_Program.d \
 ./Src/LCD8_Program.d \
