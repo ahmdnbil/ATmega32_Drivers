@@ -97,8 +97,7 @@ void HLCD4_voidInit()
 
 void HLCD4_voidClearDisplay(void)
 {
-    HLCD4_voidSendCommand(DISPLAY_CLEAR1);
-    HLCD4_voidSendCommand(DISPLAY_CLEAR2);
+    HLCD4_voidSendCommand(DISPLAY_CLEAR);
     _delay_ms(2);
 }
 

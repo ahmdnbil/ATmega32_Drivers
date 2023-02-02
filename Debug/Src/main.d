@@ -1,8 +1,12 @@
 Src/main.o Src/main.o: ../Src/main.c ../Src/../Include/LIB/BIT_MATH.h \
   ../Src/../Include/LIB/STD_TYPES.h \
   ../Src/../Include/MCAL/DIO/DIO_Interface.h \
+  ../Src/../Include/MCAL/DIO/DIO_Configuration.h \
   ../Src/../Include/MCAL/EXTI/EXTI_Interface.h \
   ../Src/../Include/MCAL/GI/GI_Interface.h \
+  ../Src/../Include/MCAL/ADC/ADC_Interface.h \
+  ../Src/../Include/MCAL/ADC/ADC_Private.h \
+  ../Src/../Include/MCAL/ADC/ADC_Configurations.h \
   ../Src/../Include/HAL/SSD/SSD_Interface.h \
   ../Src/../Include/HAL/SSD/SSD_Configuration.h \
   ../Src/../Include/HAL/LCD8/LCD8_Interface.h \
@@ -22,9 +26,17 @@ Src/main.o Src/main.o: ../Src/main.c ../Src/../Include/LIB/BIT_MATH.h \
 
 ../Src/../Include/MCAL/DIO/DIO_Interface.h:
 
+../Src/../Include/MCAL/DIO/DIO_Configuration.h:
+
 ../Src/../Include/MCAL/EXTI/EXTI_Interface.h:
 
 ../Src/../Include/MCAL/GI/GI_Interface.h:
+
+../Src/../Include/MCAL/ADC/ADC_Interface.h:
+
+../Src/../Include/MCAL/ADC/ADC_Private.h:
+
+../Src/../Include/MCAL/ADC/ADC_Configurations.h:
 
 ../Src/../Include/HAL/SSD/SSD_Interface.h:
 

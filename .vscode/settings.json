@@ -31,6 +31,9 @@
       "exti_interface.h": "c",
       "gi_interface.h": "c",
       "gi_private.h": "c",
-      "gi_configuration.h": "c"
+      "gi_configuration.h": "c",
+      "adc_configurations.h": "c",
+      "adc_private.h": "c",
+      "adc_interface.h": "c"
     }
 }

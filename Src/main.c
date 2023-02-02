@@ -11,12 +11,19 @@
 
 //DIO
 #include "../Include/MCAL/DIO/DIO_Interface.h"
+#include "../Include/MCAL/DIO/DIO_Configuration.h"
 
 //EXTI
 #include "../Include/MCAL/EXTI/EXTI_Interface.h"
 
 //GI
 #include "../Include/MCAL/GI/GI_Interface.h"
+
+//ADC
+#include "../Include/MCAL/ADC/ADC_Interface.h"
+#include "../Include/MCAL/ADC/ADC_Private.h"
+#include "../Include/MCAL/ADC/ADC_Configurations.h"
+
 //SSD
 #include "../Include/HAL/SSD/SSD_Interface.h"
 #include "../Include/HAL/SSD/SSD_Configuration.h"
@@ -50,11 +57,12 @@ void main(void)
     u8 local_u8PressedKey;
     MDIO_voidInit();
     MGI_voidEnable();
-    MEXTI_voidConfig(EXTI0,FALLING_EDGE);
-    MEXTI_voidSetCallBack(EXTI0,toggleLED);
-    MEXTI_voidEnable(EXTI0);
+    // MEXTI_voidConfig(EXTI0,FALLING_EDGE);
+    // MEXTI_voidSetCallBack(EXTI0,toggleLED);
+    // MEXTI_voidEnable(EXTI0);
 
-//    HLCD4_voidInit();
+	MADC_voidInit();
+    HLCD4_voidInit();
     //LCD
 //    HLCD4_voidGoToPos(1,1);
 //    HLCD4_voidSendString("Ahmed");
@@ -62,9 +70,40 @@ void main(void)
 //    HLCD4_voidStoreCustomChar(calmChar,0);
 //    HLCD4_voidDisplayCustomChar(0,1,6);
 //    HLCD4_voidGoToPos(2,1);
-    while(1)
-    {
+    
+	u16 lcoal_u16Digital=0;
+	u16 lcoal_u16Analog=0;
 
+
+	while(1)
+    {
+		lcoal_u16Digital=MADC_u16GetDigitalValue(ADC0_SINGLE);
+		lcoal_u16Analog=(u16)((lcoal_u16Digital*5000UL)/1024);
+		lcoal_u16Analog/=10;
+		HLCD4_voidSendString("Temp:");
+		HLCD4_voidDisplayNumber(lcoal_u16Analog);
+
+		_delay_ms(1000);
+		HLCD4_voidClearDisplay();
+		// if(lcoal_u16Analog<=1500)
+		// {
+		// 	MDIO_voidSetPinValue(PORTC,PIN0,PIN_HIGH);
+		// 	MDIO_voidSetPinValue(PORTC,PIN1,PIN_LOW);
+		// 	MDIO_voidSetPinValue(PORTC,PIN2,PIN_LOW);
+		// }
+		// else if(lcoal_u16Analog >1500 && lcoal_u16Analog<=3000)
+		// {
+
+		// 	MDIO_voidSetPinValue(PORTC,PIN0,PIN_HIGH);
+		// 	MDIO_voidSetPinValue(PORTC,PIN1,PIN_HIGH);
+		// 	MDIO_voidSetPinValue(PORTC,PIN2,PIN_LOW);
+		// }
+		// else if(lcoal_u16Analog>3000)
+		// {
+		// 	MDIO_voidSetPinValue(PORTC,PIN0,PIN_HIGH);
+		// 	MDIO_voidSetPinValue(PORTC,PIN1,PIN_HIGH);
+		// 	MDIO_voidSetPinValue(PORTC,PIN2,PIN_HIGH);
+		// }
 
     }
 }

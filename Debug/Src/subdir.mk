@@ -4,6 +4,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Src/ADC_Program.c \
 ../Src/DCMOTOR_Program.c \
 ../Src/DIO_Program.c \
 ../Src/EXTI_Program.c \
@@ -16,6 +17,7 @@ C_SRCS += \
 ../Src/main.c 
 
 OBJS += \
+./Src/ADC_Program.o \
 ./Src/DCMOTOR_Program.o \
 ./Src/DIO_Program.o \
 ./Src/EXTI_Program.o \
@@ -28,6 +30,7 @@ OBJS += \
 ./Src/main.o 
 
 C_DEPS += \
+./Src/ADC_Program.d \
 ./Src/DCMOTOR_Program.d \
 ./Src/DIO_Program.d \
 ./Src/EXTI_Program.d \
