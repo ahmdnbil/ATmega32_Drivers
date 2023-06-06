@@ -1,0 +1,13 @@
+/*
+ * RTOS_Configurations.h
+ *
+ *  Created on: Jun 2, 2023
+ *      Author: User
+ */
+
+#ifndef INCLUDE_SERVICES_RTOS_RTOS_CONFIGURATIONS_H_
+#define INCLUDE_SERVICES_RTOS_RTOS_CONFIGURATIONS_H_
+
+#define RTOS_MAX_NUMBER_OF_TASKS 3
+
+#endif /* INCLUDE_SERVICES_RTOS_RTOS_CONFIGURATIONS_H_ */

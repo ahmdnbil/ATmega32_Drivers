@@ -12,6 +12,7 @@
 #include "../Include/MCAL/ADC/ADC_Private.h"
 #include "../Include/MCAL/ADC/ADC_Configurations.h"
 
+static void (*ADC_CallBack)(void)=NULLPTR;
 
 void MADC_voidInit()
 {
@@ -75,4 +76,13 @@ u16 MADC_u16GetDigitalValue(u8 A_u8Channel)
     }
 
     return local_u16DigitalValue;
+}
+
+void MADC_voidCallBack(void (*ptrToLocal)(void))
+{
+    ADC_CallBack=ptrToLocal;
+}
+ISR(ADC_VECT)
+{
+    if(ADC_CallBack != NULLPTR) ADC_CallBack();
 }

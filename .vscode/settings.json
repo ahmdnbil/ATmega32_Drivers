@@ -34,6 +34,13 @@
       "gi_configuration.h": "c",
       "adc_configurations.h": "c",
       "adc_private.h": "c",
-      "adc_interface.h": "c"
+      "adc_interface.h": "c",
+      "timer0_configurations.h": "c",
+      "rtos_private.h": "c",
+      "rtos_interface.h": "c",
+      "rtos_configurations.h": "c",
+      "timer0_interface.h": "c",
+      "freertos.h": "c",
+      "timer0_private.h": "c"
     }
 }

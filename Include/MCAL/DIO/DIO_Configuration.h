@@ -16,7 +16,7 @@
 // ************************************************
 //DIRECTION of PORT
 
-#define DDRA_PIN0_DIRECTION PIN_INPUT
+#define DDRA_PIN0_DIRECTION PIN_OUTPUT
 #define DDRA_PIN1_DIRECTION PIN_OUTPUT
 #define DDRA_PIN2_DIRECTION PIN_OUTPUT
 #define DDRA_PIN3_DIRECTION PIN_OUTPUT
@@ -55,7 +55,7 @@
 // ************************************************
 //VALUE of PORT
 
-#define PORTA_PIN0_VALUE PIN_FLOATING
+#define PORTA_PIN0_VALUE PIN_LOW
 #define PORTA_PIN1_VALUE PIN_LOW
 #define PORTA_PIN2_VALUE PIN_LOW
 #define PORTA_PIN3_VALUE PIN_LOW

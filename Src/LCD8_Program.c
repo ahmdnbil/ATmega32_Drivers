@@ -149,8 +149,8 @@ void HLCD8_voidDisplayNumber(u32 A_u32Number)
     }   
     while(A_u32Number !=0)
     {
-            local_u32Number=((local_u32Number * 10)+(A_u32Number%10));
-            A_u32Number=A_u32Number/10;
+        local_u32Number=((local_u32Number * 10)+(A_u32Number%10));
+        A_u32Number=A_u32Number/10;
 
     }
     while (local_u32Number!=1)

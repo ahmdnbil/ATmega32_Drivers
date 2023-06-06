@@ -18,7 +18,14 @@ Src/main.o Src/main.o: ../Src/main.c ../Src/../Include/LIB/BIT_MATH.h \
   ../Src/../Include/HAL/DCMOTOR/DCMOTOR_Interface.h \
   ../Src/../Include/HAL/DCMOTOR/DCMOTOR_Configuration.h \
   ../Src/../Include/HAL/STEPPER/STEPPER_Interface.h \
-  ../Src/../Include/HAL/STEPPER/STEPPER_Configuration.h
+  ../Src/../Include/HAL/STEPPER/STEPPER_Configuration.h \
+  ../Src/../Include/SERVICES/RTOS/RTOS_Configurations.h \
+  ../Src/../Include/SERVICES/RTOS/RTOS_Interface.h \
+  ../Src/../OS/FreeRTOS.h ../Src/../OS/projdefs.h \
+  ../Src/../OS/FreeRTOSConfig.h ../Src/../OS/portable.h \
+  ../Src/../OS/portmacro.h ../Src/../OS/mpu_wrappers.h \
+  ../Src/../OS/task.h ../Src/../OS/list.h ../Src/../OS/semphr.h \
+  ../Src/../OS/queue.h
 
 ../Src/../Include/LIB/BIT_MATH.h:
 
@@ -61,3 +68,27 @@ Src/main.o Src/main.o: ../Src/main.c ../Src/../Include/LIB/BIT_MATH.h \
 ../Src/../Include/HAL/STEPPER/STEPPER_Interface.h:
 
 ../Src/../Include/HAL/STEPPER/STEPPER_Configuration.h:
+
+../Src/../Include/SERVICES/RTOS/RTOS_Configurations.h:
+
+../Src/../Include/SERVICES/RTOS/RTOS_Interface.h:
+
+../Src/../OS/FreeRTOS.h:
+
+../Src/../OS/projdefs.h:
+
+../Src/../OS/FreeRTOSConfig.h:
+
+../Src/../OS/portable.h:
+
+../Src/../OS/portmacro.h:
+
+../Src/../OS/mpu_wrappers.h:
+
+../Src/../OS/task.h:
+
+../Src/../OS/list.h:
+
+../Src/../OS/semphr.h:
+
+../Src/../OS/queue.h:

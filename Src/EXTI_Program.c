@@ -15,10 +15,9 @@
 #include "../Include/MCAL/EXTI/EXTI_Configuration.h"
 #include "../Include/MCAL/EXTI/EXTI_Private.h"
 
-
-void (*EXTI0_CallBack)(void)=NULL;
-void (*EXTI1_CallBack)(void)=NULL;
-void (*EXTI2_CallBack)(void)=NULL;
+static void (*EXTI0_CallBack)(void)=NULLPTR;
+static void (*EXTI1_CallBack)(void)=NULLPTR;
+static void (*EXTI2_CallBack)(void)=NULLPTR;
 
 void MEXTI_voidConfig(u8 A_u8EXTINo,u8 A_u8SenseMode)
 {
@@ -101,39 +100,34 @@ void MEXTI_voidSetCallBack(u8 A_u8EXTI,void (*ptrToFunc)(void))
     {
         switch (A_u8EXTI)
         {
-        case EXTI0:EXTI0_CallBack=ptrToFunc;break;
-        case EXTI1:EXTI1_CallBack=ptrToFunc;break;
-        case EXTI2:EXTI2_CallBack=ptrToFunc;break;
-        default:
-            break;
+            case EXTI0:EXTI0_CallBack=ptrToFunc;break;
+            case EXTI1:EXTI1_CallBack=ptrToFunc;break;
+            case EXTI2:EXTI2_CallBack=ptrToFunc;break;
+            default: break;
         }
     }
 }
 
 
+/*
+note1: __vector_No(void): it will shift program counter to ISR and put the ISR location
+        in vector table but doesn't make context switch
+note2: __attribute__((signal)) will make context switch cause AVR doesn't make context
+        switch when interrupt happen so we have to make push and pop the shared registers 
+        & status register to & from stack
+*/
 
-void __vector_1(void)  __attribute__((signal)); //__attribute__ for linker to recognize as ISR
-void __vector_1(void)
+ISR(EXTI0_VECT)
 {
-    if(EXTI0_CallBack!=NULL)
-    {
-        EXTI0_CallBack();
-    }
+    if(EXTI0_CallBack!=NULLPTR) EXTI0_CallBack();
 }
 
-void __vector_2(void)  __attribute__((signal)); //__attribute__ for linker to recognize as ISR
-void __vector_2(void)
+ISR(EXTI1_VECT)
 {
-    if(EXTI1_CallBack!=NULL)
-    {
-        EXTI1_CallBack();
-    }
+    if(EXTI1_CallBack!=NULLPTR) EXTI1_CallBack();
 }
-void __vector_3(void)  __attribute__((signal)); //__attribute__ for linker to recognize as ISR
-void __vector_3(void)
+
+ISR(EXTI2_VECT)
 {
-    if(EXTI2_CallBack!=NULL)
-    {
-        EXTI2_CallBack();
-    }
+    if(EXTI2_CallBack!=NULLPTR) EXTI2_CallBack();
 }

@@ -10,6 +10,6 @@
 
 u16 MADC_u16GetDigitalValue(u8 A_u8Channel);
 void MADC_voidInit();
-
+void MADC_voidCallBack(void (*ptrToLocal)(void));
 
 #endif /* INCLUDE_MCAL_ADC_ADC_INTERFACE_H_ */
