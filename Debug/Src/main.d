@@ -7,6 +7,14 @@ Src/main.o Src/main.o: ../Src/main.c ../Src/../Include/LIB/BIT_MATH.h \
   ../Src/../Include/MCAL/ADC/ADC_Interface.h \
   ../Src/../Include/MCAL/ADC/ADC_Private.h \
   ../Src/../Include/MCAL/ADC/ADC_Configurations.h \
+  ../Src/../Include/MCAL/TIMER0/TIMER0_Interface.h \
+  ../Src/../Include/MCAL/TIMER1/TIMER1_Interface.h \
+  ../Src/../Include/MCAL/TIMER1/TIMER1_Private.h \
+  ../Src/../Include/MCAL/WDT/WDT_Interface.h \
+  ../Src/../Include/MCAL/UART/UART_Interface.h \
+  ../Src/../Include/SERVICES/UART/UART_services.h \
+  ../Src/../Include/SERVICES/UART/../../MCAL/UART/UART_Interface.h \
+  ../Src/../Include/MCAL/SPI/SPI_Interface.h \
   ../Src/../Include/HAL/SSD/SSD_Interface.h \
   ../Src/../Include/HAL/SSD/SSD_Configuration.h \
   ../Src/../Include/HAL/LCD8/LCD8_Interface.h \
@@ -19,13 +27,12 @@ Src/main.o Src/main.o: ../Src/main.c ../Src/../Include/LIB/BIT_MATH.h \
   ../Src/../Include/HAL/DCMOTOR/DCMOTOR_Configuration.h \
   ../Src/../Include/HAL/STEPPER/STEPPER_Interface.h \
   ../Src/../Include/HAL/STEPPER/STEPPER_Configuration.h \
+  ../Src/../Include/HAL/SERVOMOTOR/SERVO_Interface.h \
+  ../Src/../Include/HAL/ULTRASONIC/ULTRASONIC_Interface.h \
   ../Src/../Include/SERVICES/RTOS/RTOS_Configurations.h \
   ../Src/../Include/SERVICES/RTOS/RTOS_Interface.h \
-  ../Src/../OS/FreeRTOS.h ../Src/../OS/projdefs.h \
-  ../Src/../OS/FreeRTOSConfig.h ../Src/../OS/portable.h \
-  ../Src/../OS/portmacro.h ../Src/../OS/mpu_wrappers.h \
-  ../Src/../OS/task.h ../Src/../OS/list.h ../Src/../OS/semphr.h \
-  ../Src/../OS/queue.h
+  ../Src/../Include/HAL/EEPROM/EEPROM_Interface.h \
+  ../Src/../Include/HAL/EEPROM/../../MCAL/TWI/TWI_Interface.h
 
 ../Src/../Include/LIB/BIT_MATH.h:
 
@@ -44,6 +51,22 @@ Src/main.o Src/main.o: ../Src/main.c ../Src/../Include/LIB/BIT_MATH.h \
 ../Src/../Include/MCAL/ADC/ADC_Private.h:
 
 ../Src/../Include/MCAL/ADC/ADC_Configurations.h:
+
+../Src/../Include/MCAL/TIMER0/TIMER0_Interface.h:
+
+../Src/../Include/MCAL/TIMER1/TIMER1_Interface.h:
+
+../Src/../Include/MCAL/TIMER1/TIMER1_Private.h:
+
+../Src/../Include/MCAL/WDT/WDT_Interface.h:
+
+../Src/../Include/MCAL/UART/UART_Interface.h:
+
+../Src/../Include/SERVICES/UART/UART_services.h:
+
+../Src/../Include/SERVICES/UART/../../MCAL/UART/UART_Interface.h:
+
+../Src/../Include/MCAL/SPI/SPI_Interface.h:
 
 ../Src/../Include/HAL/SSD/SSD_Interface.h:
 
@@ -69,26 +92,14 @@ Src/main.o Src/main.o: ../Src/main.c ../Src/../Include/LIB/BIT_MATH.h \
 
 ../Src/../Include/HAL/STEPPER/STEPPER_Configuration.h:
 
+../Src/../Include/HAL/SERVOMOTOR/SERVO_Interface.h:
+
+../Src/../Include/HAL/ULTRASONIC/ULTRASONIC_Interface.h:
+
 ../Src/../Include/SERVICES/RTOS/RTOS_Configurations.h:
 
 ../Src/../Include/SERVICES/RTOS/RTOS_Interface.h:
 
-../Src/../OS/FreeRTOS.h:
+../Src/../Include/HAL/EEPROM/EEPROM_Interface.h:
 
-../Src/../OS/projdefs.h:
-
-../Src/../OS/FreeRTOSConfig.h:
-
-../Src/../OS/portable.h:
-
-../Src/../OS/portmacro.h:
-
-../Src/../OS/mpu_wrappers.h:
-
-../Src/../OS/task.h:
-
-../Src/../OS/list.h:
-
-../Src/../OS/semphr.h:
-
-../Src/../OS/queue.h:
+../Src/../Include/HAL/EEPROM/../../MCAL/TWI/TWI_Interface.h:

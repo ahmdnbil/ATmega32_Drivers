@@ -25,17 +25,17 @@ void MEXTI_voidConfig(u8 A_u8EXTINo,u8 A_u8SenseMode)
     {
         switch (A_u8EXTINo)
         {
-        case EXTI0:
+            case EXTI0:
             MCUCR &=~(SENSE_MODE_MASK<<ISC00); //clearing bits
             MCUCR |=(A_u8SenseMode<<ISC00); //puting values
             break;
 
-        case EXTI1:
+            case EXTI1:
             MCUCR &=~(SENSE_MODE_MASK<<ISC10); //clearing bits
             MCUCR |=(A_u8SenseMode<<ISC10); //puting values
             break;
         
-        case EXTI2:
+            case EXTI2:
             switch (A_u8SenseMode)
             {
                 case FALLING_EDGE:CLR_BIT(MCUCSR,ISC2);

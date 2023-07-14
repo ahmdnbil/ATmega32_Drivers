@@ -1,0 +1,13 @@
+/*
+ * ULTRASONIC_Private.h
+ *
+ *  Created on: Jun 27, 2023
+ *      Author: User
+ */
+
+#ifndef INCLUDE_HAL_ULTRASONIC_ULTRASONIC_PRIVATE_H_
+#define INCLUDE_HAL_ULTRASONIC_ULTRASONIC_PRIVATE_H_
+
+
+
+#endif /* INCLUDE_HAL_ULTRASONIC_ULTRASONIC_PRIVATE_H_ */

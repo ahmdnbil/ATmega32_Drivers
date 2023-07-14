@@ -22,8 +22,8 @@ RTOS_TCB RTOS_AOfTasks[RTOS_MAX_NUMBER_OF_TASKS];
 void RTOS_voidInit(void)
 {
     //set callback function for timer0 ctc mode
-    MTIMER0_voidSetCallBackCTC(RTOS_voidScheduler);
-    MTIMER0_voidInit();
+    MTIMER0_voidCTCSetCallBack(RTOS_voidScheduler);
+    MTIMER0_voidInit(TIMER0_NORMAL_MODE,TIMER0_PRESCALER_8,TIMER0_COMPARE_OUTPUT_MODE_NORMAL);
 }
 
 void RTOS_voidInitArrayFunctions()

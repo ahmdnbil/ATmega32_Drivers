@@ -24,6 +24,23 @@
 #include "../Include/MCAL/ADC/ADC_Private.h"
 #include "../Include/MCAL/ADC/ADC_Configurations.h"
 
+//TIMER0
+#include "../Include/MCAL/TIMER0/TIMER0_Interface.h"
+
+//TIMER1
+#include "../Include/MCAL/TIMER1/TIMER1_Interface.h" 
+#include "../Include/MCAL/TIMER1/TIMER1_Private.h" 
+
+//WDT
+#include "../Include/MCAL/WDT/WDT_Interface.h"
+
+//UART
+#include "../Include/MCAL/UART/UART_Interface.h"
+#include "../Include/SERVICES/UART/UART_services.h"
+
+//SPI
+#include "../Include/MCAL/SPI/SPI_Interface.h"
+
 //SSD
 #include "../Include/HAL/SSD/SSD_Interface.h"
 #include "../Include/HAL/SSD/SSD_Configuration.h"
@@ -49,133 +66,37 @@
 #include "../Include/HAL/STEPPER/STEPPER_Interface.h"
 #include "../Include/HAL/STEPPER/STEPPER_Configuration.h"
 
+//Servo Motor
+#include "../Include/HAL/SERVOMOTOR/SERVO_Interface.h"
+
+//Ultrasonic sensor
+#include "../Include/HAL/ULTRASONIC/ULTRASONIC_Interface.h"
+
 //RTOS
 #include "../Include/SERVICES/RTOS/RTOS_Configurations.h"
 #include "../Include/SERVICES/RTOS/RTOS_Interface.h"
 
-//freeRTOS
-#include "../OS/FreeRTOS.h"
-#include "../OS/task.h"
-#include "../OS/semphr.h"
+// EEPROM
+#include "../Include/HAL/EEPROM/EEPROM_Interface.h"
 
-#define F_CPU 8000000UL 	 	
 #include <util/delay.h>
 
-//for RTOS
-// void toggleLED1(void);
-// void toggleLED2(void); 
-// void toggleLED3(void);
+#define F_CPU 8000000UL 	 	
 
-//for FreeRTOS
-void AppTask1(void*copy_VP);
-void AppTask2(void*copy_VP);
-void AppTask3(void*copy_VP);
-
+u16 ton =10;
+//void func2();
 void main(void)
 {
-    MDIO_voidInit();
-    MGI_voidEnable();
-
-	xTaskCreate(AppTask1,NULL,200,NULL,4,NULL);
-	xTaskCreate(AppTask2,NULL,200,NULL,3,NULL);
-	xTaskCreate(AppTask3,NULL,200,NULL,2,NULL);
-	vTaskStartScheduler();
-	while(1)
-    {
-    }
-}
-
-// void toggleLED1(void)
-// {
-// 	static u8 local_u8Flag=0;
-// 	if(local_u8Flag)
-// 	{
-// 		local_u8Flag=0;
-// 		MDIO_voidSetPinValue(PORTA,PIN0,PIN_HIGH);
-// 	}else
-// 	{
-// 		local_u8Flag=1;
-// 		MDIO_voidSetPinValue(PORTA,PIN0,PIN_LOW);
-// 	}
-// }
-// void toggleLED2(void)
-// {
-// 	static u8 local_u8Flag=0;
-// 	if(local_u8Flag)
-// 	{
-// 		local_u8Flag=0;
-// 		MDIO_voidSetPinValue(PORTA,PIN1,PIN_HIGH);
-// 	}else
-// 	{
-// 		local_u8Flag=1;
-// 		MDIO_voidSetPinValue(PORTA,PIN1,PIN_LOW);
-// 	}
-// }
-// void toggleLED3(void)
-// {
-// 	static u8 local_u8Flag=0;
-// 	if(local_u8Flag)
-// 	{
-// 		local_u8Flag=0;
-// 		MDIO_voidSetPinValue(PORTA,PIN2,PIN_HIGH);
-// 	}else
-// 	{
-// 		local_u8Flag=1;
-// 		MDIO_voidSetPinValue(PORTA,PIN2,PIN_LOW);
-// 	}
-// }
-
-void AppTask1(void*copy_VP)
-{
-	static u8 flag=0;
+	u8 str[100];
+	MDIO_voidInit();
+	MGI_voidEnable();
+	MUSART_voidInit();
+	MUSART_voidSendStingAsynch("Ahmed Nabil");
+	//receive variable 
 	while(1)
 	{
-		if(!flag)
-		{
-			MDIO_voidSetPinValue(PORTA,PIN0,PIN_HIGH);
-			flag=1;
-		}
-		else
-		{
-			MDIO_voidSetPinValue(PORTA,PIN0,PIN_LOW);
-			flag=0;
-		}
-		vTaskDelay(1000);
 	}
 }
-void AppTask2(void*copy_VP)
-{
-	static u8 flag=0;
-	while(1)
-	{
-		if(!flag)
-		{
-			MDIO_voidSetPinValue(PORTA,PIN1,PIN_HIGH);
-			flag=1;
-		}
-		else
-		{
-			MDIO_voidSetPinValue(PORTA,PIN1,PIN_LOW);
-			flag=0;
-		}
-		vTaskDelay(1000);
-	}
-}
-void AppTask3(void*copy_VP)
-{
-	static u8 flag=0;
-	while(1)
-	{
-		if(!flag)
-		{
-			MDIO_voidSetPinValue(PORTA,PIN2,PIN_HIGH);
-			flag=1;
-		}
-		else
-		{
-			MDIO_voidSetPinValue(PORTA,PIN2,PIN_LOW);
-			flag=0;
-		}
-		vTaskDelay(1000);
-	}
-}
+
+
+

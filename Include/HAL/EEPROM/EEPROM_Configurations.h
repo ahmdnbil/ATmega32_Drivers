@@ -1,0 +1,13 @@
+/*
+ * EEPROM_Configurations.h
+ *
+ *  Created on: Jul 11, 2023
+ *      Author: User
+ */
+
+#ifndef INCLUDE_HAL_EEPROM_EEPROM_CONFIGURATIONS_H_
+#define INCLUDE_HAL_EEPROM_EEPROM_CONFIGURATIONS_H_
+
+
+
+#endif /* INCLUDE_HAL_EEPROM_EEPROM_CONFIGURATIONS_H_ */
