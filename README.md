@@ -9,20 +9,19 @@
 |4      | Servo motor   | ✔️           |
 |5      | SSD           | ✔️           |
 |6      | keypad        | ✔️           |
-|7      | LCD 8bit mode | ✔️           |
-|8      | LCD 4bit mode | ✔️           |
-|9      | ADC           | ✔️           |
-|10     | EXTI          | ✔️           |
-|11     | Simple RTOS   | ✔️           |
-|12     | TIMER0 8bit   | ✔️           |
-|13     | TIMER1 16bit  | ✔️           |
-|14     | TIMER2 8bit   | ✔️           |
-|15     | RTC (TIMER2)  | ✔️           |
-|16     | ultrasonic    | ✔️           |
-|17     | WDT           | ✔️           |
-|18     | UART          | ✔️           |
-|19     | Bluetooth     | ✔️           |
-|20     | SPI           | ✔️           |
-|21     | I2C           | ✔️           |
-|22     | EEPROM        | ✔️           |
-|23     | RTC (EEPROM)  | ✔️           |
+|7      | LCD 8bit-4bit | ✔️           |
+|8      | ADC           | ✔️           |
+|9      | EXTI          | ✔️           |
+|10     | Simple RTOS   | ✔️           |
+|11     | TIMER0 8bit   | ✔️           |
+|12     | TIMER1 16bit  | ✔️           |
+|13     | TIMER2 8bit   | ✔️           |
+|14     | RTC (TIMER2)  | ❌           |
+|15     | ultrasonic    | ✔️           |
+|16     | WDT           | ✔️           |
+|17     | UART          | ✔️           |
+|18     | Bluetooth     | ✔️           |
+|19     | SPI           | ✔️           |
+|20     | I2C           | ✔️           |
+|21     | EEPROM        | ✔️           |
+|22     | RTC (EEPROM)  | ❌           |
