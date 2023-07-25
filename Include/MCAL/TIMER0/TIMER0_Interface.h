@@ -38,18 +38,17 @@ typedef enum
 
 }TIMER0_Compare;
 
+void TIMER0_voidInit(TIMER0_Mode mode, TIMER0_Prescaler prescaler, TIMER0_Compare compare);
 
-void MTIMER0_voidInit(TIMER0_Mode mode,TIMER0_Prescaler prescaler,TIMER0_Compare compare);
+void TIMER0_voidOverFlowInterruptEnable();
+void TIMER0_voidOverFlowInterruptDisable();
+void TIMER0_voidCompareInterruptEnable();
+void TIMER0_voidCompareInterruptDisable();
 
-void MTIMER0_voidOverFlowInterruptEnable();
-void MTIMER0_voidOverFlowInterruptDisable();
-void MTIMER0_voidCompareInterruptEnable();
-void MTIMER0_voidCompareInterruptDisable();
+void TIMER0_voidSetPreLoad(u8 A_u8PreLoadValue);
 
-void MTIMER0_voidSetPreLoad(u8 A_u8PreLoadValue);
-
-void MTIMER0_voidCTCSetCallBack(void(*pf)(void));
-void MTIMER0_voidOVFSetCallBack(void(*pf)(void));
-void MTIMER0_voidSetOCR0(u8 A_u8OCR0);
+void TIMER0_voidCTCSetCallBack(void (*pf)(void));
+void TIMER0_voidOVFSetCallBack(void (*pf)(void));
+void TIMER0_voidSetOCR0(u8 A_u8OCR0);
 
 #endif /* INCLUDE_MCAL_TIMER0_TIMER0_INTERFACE_H_ */

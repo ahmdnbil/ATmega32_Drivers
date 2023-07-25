@@ -8,9 +8,7 @@
 #ifndef INCLUDE_HAL_STEPPER_STEPPER_INTERFACE_H_
 #define INCLUDE_HAL_STEPPER_STEPPER_INTERFACE_H_
 
-
-void HSTEP_voidFullStep();
-void HSTEP_voidMotorAngle(u32 A_u32Angle);
-
+void STEP_voidFullStep();
+void STEP_voidMotorAngle(u32 A_u32Angle);
 
 #endif /* INCLUDE_HAL_STEPPER_STEPPER_INTERFACE_H_ */

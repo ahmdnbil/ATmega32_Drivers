@@ -17,14 +17,10 @@
 #define EXTI1 1
 #define EXTI2 2
 
-void MEXTI_voidConfig(u8 A_u8EXTINo,u8 A_u8SenseMode);
-void MEXTI_voidEnable(u8 A_u8EXTI);
-void MEXTI_voidDisable(u8 A_u8EXTI);
-void MEXTI_voidClearFlag(u8 A_u8EXTI);
-void MEXTI_voidSetCallBack(u8 A_u8EXTI,void (*ptrToFunc)(void));
-
-
-
-
+void EXTI_voidConfig(u8 A_u8EXTINo, u8 A_u8SenseMode);
+void EXTI_voidEnable(u8 A_u8EXTI);
+void EXTI_voidDisable(u8 A_u8EXTI);
+void EXTI_voidClearFlag(u8 A_u8EXTI);
+void EXTI_voidSetCallBack(u8 A_u8EXTI, void (*ptrToFunc)(void));
 
 #endif /* INCLUDE_MCAL_EXTI_EXTI_INTERFACE_H_ */

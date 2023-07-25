@@ -10,8 +10,13 @@
 #define TOGGLE_BIT(register,bitNo)  register^ =(1<<bitNo)
 
 /**************ISR**********************/
+// Enable global interrupt using Assembly instructions
+#define sei() __asm__ __volatile__("sei" ::)
+// disable global interrupt using Assembly instructions
+#define cli() __asm__ __volatile__("cli" ::)
 #define ISR_NOBLOCK __attribute__((interrupt))
 #define ISR_NAKED __attribute__((naked))
+#define ISR_ALIASOF(v) __attribute__((alias(__STRINGIFY(v))))
 
 #define ISR(vector, ...)                                   \
     void vector(void) __attribute__((signal)) __VA_ARGS__; \

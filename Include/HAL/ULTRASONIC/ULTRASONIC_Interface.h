@@ -8,10 +8,9 @@
 #ifndef INCLUDE_HAL_ULTRASONIC_ULTRASONIC_INTERFACE_H_
 #define INCLUDE_HAL_ULTRASONIC_ULTRASONIC_INTERFACE_H_
 
-u16 HULTRSONIC_u16GetDistance();
-void HULTRASONIC_voidInit(void);
-void HULTRASONIC_voidStart();
-u16 HULTRASONIC_u8GetDistanceNoBlock(u16*Pdistance);
-
+u16 ULTRASONIC_u16GetDistance();
+void ULTRASONIC_voidInit(void);
+void ULTRASONIC_voidStart();
+u16 ULTRASONIC_u8GetDistanceNoBlock(u16 *Pdistance);
 
 #endif /* INCLUDE_HAL_ULTRASONIC_ULTRASONIC_INTERFACE_H_ */

@@ -9,7 +9,6 @@
 #define INCLUDE_HAL_DCMOTOR_DCMOTOR_INTERFACE_H_
 
 //H-bridge using 4npn transistors 2N2222
-void HDCMOTOR_voidHBridge();
-
+void DCMOTOR_voidHBridge();
 
 #endif /* INCLUDE_HAL_DCMOTOR_DCMOTOR_INTERFACE_H_ */

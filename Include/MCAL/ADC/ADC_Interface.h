@@ -14,6 +14,12 @@ typedef enum
     AVCC,
     INTERNAL_REF=3
 }REF_Voltage;
+
+/*
+    for 8MHz choose prescaler 128 or 64, why?
+    in ATmega32, it's mandatory to work between 50kHz and 200kHz
+    we can't achieve this criterion except in 128 and 64 Prescaler
+*/
 typedef enum
 {
     ADC_PRESCALER_2,
@@ -37,10 +43,17 @@ typedef enum
     ADC7
 }ADC_Channel;
 
-u16 MADC_u16GetDigitalValue(ADC_Channel channel);
-void MADC_voidInit(ADC_Prescaler Prescaler,REF_Voltage referance);
-void MADC_voidInterruptEnable(void);
-void MADC_voidInterruptDisable(void);
-void MADC_voidCallBack(void (*ptrToLocal)(void));
+void ADC_voidInit(ADC_Prescaler Prescaler, REF_Voltage referance);
+
+// synchrounous funciton
+u16 ADC_u16GetDigitalValueBlocking(ADC_Channel channel);
+
+// asynchrounous funciont
+void ADC_voidStartConversionAsync(ADC_Channel channel);
+u16 ADC_u16GetValueNonBlocking();
+
+void ADC_voidInterruptEnable(void);
+void ADC_voidInterruptDisable(void);
+void ADC_voidCallBack(void (*ptrToLocal)(void));
 
 #endif /* INCLUDE_MCAL_ADC_ADC_INTERFACE_H_ */

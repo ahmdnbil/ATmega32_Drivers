@@ -8,10 +8,8 @@
 #ifndef INCLUDE_HAL_SSD_SSD_INTERFACE_H_
 #define INCLUDE_HAL_SSD_SSD_INTERFACE_H_
 
-void HSSD_voidDisplay(u8 A_u8Number,u8 A_u8PortId);
-void HSSD_voidDisplayDescending(u8 A_u8PortId);
-void HSSD_voidDisplayAscending(u8 A_u8PortId);
-
-
+void SSD_voidDisplay(u8 A_u8Number, u8 A_u8PortId);
+void SSD_voidDisplayDescending(u8 A_u8PortId, u16 A_u16Delayms);
+void SSD_voidDisplayAscending(u8 A_u8PortId, u16 A_u16Delayms);
 
 #endif /* INCLUDE_HAL_SSD_SSD_INTERFACE_H_ */

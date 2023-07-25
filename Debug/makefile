@@ -8,8 +8,26 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include Src/subdir.mk
 -include Include/SERVICES/UART/subdir.mk
+-include Include/SERVICES/RTOS/subdir.mk
+-include Include/MCAL/WDT/subdir.mk
+-include Include/MCAL/UART/subdir.mk
+-include Include/MCAL/TWI/subdir.mk
+-include Include/MCAL/TIMER2/subdir.mk
+-include Include/MCAL/TIMER1/subdir.mk
+-include Include/MCAL/TIMER0/subdir.mk
+-include Include/MCAL/SPI/subdir.mk
+-include Include/MCAL/EXTI/subdir.mk
+-include Include/MCAL/DIO/subdir.mk
+-include Include/MCAL/ADC/subdir.mk
+-include Include/HAL/ULTRASONIC/subdir.mk
+-include Include/HAL/STEPPER/subdir.mk
+-include Include/HAL/SSD/subdir.mk
+-include Include/HAL/SERVOMOTOR/subdir.mk
+-include Include/HAL/LCD/subdir.mk
+-include Include/HAL/KEYPAD/subdir.mk
+-include Include/HAL/EEPROM/subdir.mk
+-include Include/HAL/DCMOTOR/subdir.mk
 -include subdir.mk
 -include objects.mk
 

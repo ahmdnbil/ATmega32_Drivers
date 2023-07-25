@@ -26,30 +26,28 @@ typedef enum
 
 typedef enum
 {
-    TIMER2_NO_CLK,          
-    TIMER2_NO_PRESCALER,    
-    TIMER2_PRESCALER_8,   
-    TIMER2_PRESCALER_64,    
-    TIMER2_PRESCALER_256,   
-    TIMER2_PRESCALER_1024,  
-    TIMER2_EXT_CLK_FALLING, 
-    TIMER2_EXT_CLK_RISING  
-}TIMER2_Prescaler;
+    TIMER2_NO_CLK,
+    TIMER2_NO_PRESCALER,
+    TIMER2_PRESCALER_8,
+    TIMER2_PRESCALER_32,
+    TIMER2_PRESCALER_64,
+    TIMER2_PRESCALER_128,
+    TIMER2_PRESCALER_256,
+    TIMER2_PRESCALER_1024,
+} TIMER2_Prescaler;
 
-void MTIMER2_voidInit(TIMER2_Mode mode,TIMER2_Compare Compare,TIMER2_Prescaler Prescaler);
+void TIMER2_voidInit(TIMER2_Mode mode, TIMER2_Compare Compare, TIMER2_Prescaler Prescaler);
 
-void MTIMER2_voidSetTCNT2(u8 A_u8Value);
-void MTIMER2_voidSetOCR2(u8 A_u8Value);
+void TIMER2_voidSetTCNT2(u8 A_u8Value);
+void TIMER2_voidSetOCR2(u8 A_u8Value);
 
-void MTIMER2_voidOverFlowInterruptEnable();
-void MTIMER2_voidOverFlowInterruptDisable();
+void TIMER2_voidOverFlowInterruptEnable();
+void TIMER2_voidOverFlowInterruptDisable();
 
-void MTIMER2_voidCompareInterruptEnable();
-void MTIMER2_voidCompareInterruptDisable();
+void TIMER2_voidCompareInterruptEnable();
+void TIMER2_voidCompareInterruptDisable();
 
-void MTIMER2_voidSetCallBackOVF(void (*pf)());
-void MTIMER2_voidSetCallBackCTC(void (*pf)());
-
-
+void TIMER2_voidSetCallBackOVF(void (*pf)());
+void TIMER2_voidSetCallBackCTC(void (*pf)());
 
 #endif /* INCLUDE_MCAL_TIMER2_TIMER2_INTERFACE_H_ */

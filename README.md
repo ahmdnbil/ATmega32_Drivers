@@ -17,10 +17,12 @@
 |12     | TIMER0 8bit   | ✔️           |
 |13     | TIMER1 16bit  | ✔️           |
 |14     | TIMER2 8bit   | ✔️           |
-|15     | ultrasonic    | ✔️           |
-|16     | WDT           | ✔️           |
-|17     | UART          | ✔️           |
-|18     | Bluetooth     | ✔️           |
-|19     | SPI           | ✔️           |
-|20     | I2C           | ✔️           |
-|21     | EEPROM        | ✔️           |
+|15     | RTC (TIMER2)  | ✔️           |
+|16     | ultrasonic    | ✔️           |
+|17     | WDT           | ✔️           |
+|18     | UART          | ✔️           |
+|19     | Bluetooth     | ✔️           |
+|20     | SPI           | ✔️           |
+|21     | I2C           | ✔️           |
+|22     | EEPROM        | ✔️           |
+|23     | RTC (EEPROM)  | ✔️           |

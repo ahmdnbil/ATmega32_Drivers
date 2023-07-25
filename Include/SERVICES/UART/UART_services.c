@@ -16,22 +16,22 @@ static u8* Asynch_receive_Str =NULLPTR;
                             /*send string techniques*/
 
 //Send String synch blocking
-void MUSART_voidSendStringSynchBlocking(u8* A_u8Word)
+void UART_voidSendStringSynchBlocking(u8 *A_u8Word)
 {
     u8 local_u8Counter=0;
     while(A_u8Word[local_u8Counter] != '\0')
     {
-        MUSART_voidSendByteSynchBlocking(A_u8Word[local_u8Counter]);
+        UART_voidSendByteSynchBlocking(A_u8Word[local_u8Counter]);
         local_u8Counter++;
     }
 }
 
 //send string asynch non-blocking
-void MUSART_voidSendStingAsynch(u8 *ptr)
+void UART_voidSendStingAsynch(u8 *ptr)
 {
-    MUSART_voidSetCallTXC(FUNC_TX);
-    MUSART_voidTXCompleteInterruptEnable();
-    MUSART_voidSendByteAsynch(ptr[0]);
+    UART_voidSetCallTXC(FUNC_TX);
+    UART_voidTXCompleteInterruptEnable();
+    UART_voidSendByteAsynch(ptr[0]);
     Asynch_Sent_Str=ptr;
 }
 
@@ -41,7 +41,7 @@ void FUNC_TX()
     static u8 i=1;
     if(Asynch_Sent_Str[i]!='\0')
     {
-        MUSART_voidSendByteAsynch(Asynch_Sent_Str[i]);
+        UART_voidSendByteAsynch(Asynch_Sent_Str[i]);
         i++;
     }
     else i=1;
@@ -52,10 +52,10 @@ void FUNC_TX()
 
 /**********************************************************************************/
                             /*receive string techniques*/
-void MUSART_voidReceiveString(u8 *ptr)
+void UART_voidReceiveString(u8 *ptr)
 {
     u8 i=0;
-    ptr[i]=MUSART_u8ReadByteSynchBlocking();
+    ptr[i] = UART_u8ReadByteSynchBlocking();
     /*
         0x0d is hex code for enter in proteus
         in docklight you send two numbers when you push enter 10 13 for example
@@ -63,22 +63,22 @@ void MUSART_voidReceiveString(u8 *ptr)
     while(ptr[i]!=0x0d)
     {
         i++;
-        ptr[i]=MUSART_u8ReadByteSynchBlocking();
+        ptr[i] = UART_u8ReadByteSynchBlocking();
     }
     ptr[i]='\0';
 }
 
-void MUSART_voidReceiveStringAsynch(u8*str)
+void UART_voidReceiveStringAsynch(u8 *str)
 {
-    MUSART_voidSetCallRXC(FUNC_RX);
-    MUSART_voidRXCompleteInterruptEnable();
+    UART_voidSetCallRXC(FUNC_RX);
+    UART_voidRXCompleteInterruptEnable();
     Asynch_receive_Str=str;
 }
 
 void FUNC_RX()
 {
     static u8 i=0;
-    Asynch_receive_Str[i]=MUSART_u8ReadByteAsynch();
+    Asynch_receive_Str[i] = UART_u8ReadByteAsynch();
     i++;
 }
 
@@ -87,7 +87,7 @@ void FUNC_RX()
 
 /**********************************************************************************/
                             /*My Protocol to send And receive*/
-void MUSART_voidSendStringMyProtocol(u8 *str)
+void UART_voidSendStringMyProtocol(u8 *str)
 {
     u8 lens=0,sum=0,i=0;
     while(str[lens]!='\0')
@@ -95,37 +95,36 @@ void MUSART_voidSendStringMyProtocol(u8 *str)
         sum+=str[lens];
         lens++;
     }
-    MUSART_voidSendByteSynchBlocking(lens);
+    UART_voidSendByteSynchBlocking(lens);
 
     while(str[i]!='\0')
     {
-        MUSART_voidSendByteSynchBlocking(str[i]);
+        UART_voidSendByteSynchBlocking(str[i]);
     }
-    MUSART_voidSendByteSynchBlocking((u8)sum);
-    MUSART_voidSendByteSynchBlocking((u8)(sum>>8));
-
+    UART_voidSendByteSynchBlocking((u8)sum);
+    UART_voidSendByteSynchBlocking((u8)(sum >> 8));
 }
 
-u8 MUSART_voidReceiveStringMyProtocol(u8 *str)
+u8 UART_voidReceiveStringMyProtocol(u8 *str)
 {
-    u8 i,lens=MUSART_u8ReadByteSynchBlocking();
+    u8 i, lens = UART_u8ReadByteSynchBlocking();
     u16 sum_rec=0,sum_cal=0;
     u8 first_byte,second_byte;
 
     for(i=0;i<lens;i++)
     {
-        str[i]=MUSART_u8ReadByteSynchBlocking();
+        str[i] = UART_u8ReadByteSynchBlocking();
         sum_cal+=str[i];
     }
-    first_byte=MUSART_u8ReadByteSynchBlocking();
-    second_byte=MUSART_u8ReadByteSynchBlocking();
+    first_byte = UART_u8ReadByteSynchBlocking();
+    second_byte = UART_u8ReadByteSynchBlocking();
     sum_cal=first_byte | (second_byte<<8);
     if(sum_cal == sum_rec) return 1;
     return 0;
 }
 
 /**********************************************************************************/
-u8 MUSART_u8Frame(u8 *str,u8 *s1,u8 *s2,u8 *pnum1,u8 *pnum2)
+u8 UART_u8Frame(u8 *str, u8 *s1, u8 *s2, u8 *pnum1, u8 *pnum2)
 {
 	//our frame: hello,509,hi,76
 	

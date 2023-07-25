@@ -66,7 +66,10 @@
     "twi_interface.h": "c",
     "eeprom_configurations.h": "c",
     "eeprom_interface.h": "c",
-    "eeprom_private.h": "c"
+    "eeprom_private.h": "c",
+    "ultrasonic_private.h": "c",
+    "timer2_configurations.h": "c",
+    "keypad_interface.h": "c"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

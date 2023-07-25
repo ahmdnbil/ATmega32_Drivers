@@ -8,8 +8,7 @@
 #ifndef INCLUDE_MCAL_WDT_WDT_INTERFACE_H_
 #define INCLUDE_MCAL_WDT_WDT_INTERFACE_H_
 
-void MWDT_voidEnableWDT(void);
-void MWDT_voidDisableWDT(void);
-
+void WDT_voidEnableWDT(void);
+void WDT_voidDisableWDT(void);
 
 #endif /* INCLUDE_MCAL_WDT_WDT_INTERFACE_H_ */

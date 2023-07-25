@@ -8,21 +8,17 @@
 #ifndef INCLUDE_MCAL_ADC_ADC_CONFIGURATIONS_H_
 #define INCLUDE_MCAL_ADC_ADC_CONFIGURATIONS_H_
 
-
-
 /*
 Chose one of the following for left adjust:-
-TRUE
-FALSE
+    TRUE
+    FALSE
 */
 #define ADC_LEFT_ADJUST FALSE
 
-
-
 /*
 Chose one of the following for auto triggering:-
-TRUE
-FALSE
+    TRUE
+    FALSE
 */
 #define AUTO_TRIGGERING FALSE 
 

@@ -33,11 +33,10 @@
 #define PIN_FLOATING 0
 #define PIN_PULLUP 1
 
-void MDIO_voidInit();
-void MDIO_voidSetPinValue(u8 A_u8Port,u8 A_u8Pin, u8 A_u8Value);
-u8 MDIO_u8GetPinValue(u8 A_u8Port,u8 A_u8Pin);
-void MDIO_voidSetPortValue(u8 A_u8Port,u8 A_u8Value);
-void MDIO_voidSetPortDirection(u8 A_u8Port,u8 A_u8Value);
-
+void DIO_voidInit();
+void DIO_voidSetPinValue(u8 A_u8Port, u8 A_u8Pin, u8 A_u8Value);
+u8 DIO_u8GetPinValue(u8 A_u8Port, u8 A_u8Pin);
+void DIO_voidSetPortValue(u8 A_u8Port, u8 A_u8Value);
+void DIO_voidSetPortDirection(u8 A_u8Port, u8 A_u8Value);
 
 #endif /* INCLUDE_MCAL_DIO_DIO_INTERFACE_H_ */
