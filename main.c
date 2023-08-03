@@ -49,9 +49,9 @@
 // RTOS
 #include "./Include/SERVICES/RTOS/RTOS_Interface.h"
 
+#define F_CPU 8000000UL
 #include <util/delay.h>
 
-#define F_CPU 8000000UL
 
 u16 ton = 10;
 // void func2();

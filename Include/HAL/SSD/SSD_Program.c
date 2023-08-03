@@ -13,6 +13,7 @@
 #include "./SSD_Interface.h"
 #include "./SSD_Private.h"
 
+#define F_CPU 8000000UL
 #include <util/delay.h>
 void SSD_voidDisplay(u8 A_u8Number, u8 A_u8PortId)
 {

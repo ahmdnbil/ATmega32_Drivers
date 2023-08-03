@@ -16,6 +16,7 @@
 #include "./KEYPAD_Interface.h"
 #include "./KEYPAD_Configuration.h"
 
+#define F_CPU 8000000UL
 #include <util/delay.h>
 
 u8 KeypadArr[COLS_NUMBER][ROWS_NUMBER] = KEYPAD_SYMBOLS;

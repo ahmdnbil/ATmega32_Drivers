@@ -16,6 +16,8 @@
 
 #include <math.h>
 #include <stdlib.h>
+
+#define F_CPU 8000000UL
 #include <util/delay.h>
 
 #if LCD_MODE == _8_BIT_MODE

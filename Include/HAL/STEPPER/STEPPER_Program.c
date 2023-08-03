@@ -16,6 +16,7 @@
 #include "./STEPPER_Interface.h"
 #include "./STEPPER_Configuration.h"
 
+#define F_CPU 8000000UL
 #include <util/delay.h>
 
 void STEP_voidFullStep()

@@ -15,6 +15,7 @@
 #include "./ULTRASONIC_Interface.h"
 #include "./ULTRASONIC_Private.h"
 
+#define F_CPU 8000000UL
 #include <util/delay.h>
 
 static void Func_OVF();

@@ -15,6 +15,7 @@
 #include "./EEPROM_Private.h"
 #include "./EEPROM_Interface.h"
 
+#define F_CPU 8000000UL
 #include <util/delay.h>
 /*
     assuming we talk to 8k EEPROM

@@ -104,6 +104,18 @@ void DIO_voidSetPinValue(u8 A_u8Port, u8 A_u8Pin, u8 A_u8Value)
     }
 }
 
+void DIO_voidTogglePin(u8 A_u8Port, u8 A_u8Pin)
+{
+    switch (A_u8Port)
+    {
+        case PORTA: TOGGLE_BIT(PORTA_REG,A_u8Pin); break;
+        case PORTB: TOGGLE_BIT(PORTB_REG,A_u8Pin); break;
+        case PORTC: TOGGLE_BIT(PORTC_REG,A_u8Pin); break;
+        case PORTD: TOGGLE_BIT(PORTD_REG,A_u8Pin); break;
+        default: break;
+    }
+}
+
 void DIO_voidSetPinDirection(u8 A_u8Port, u8 A_u8Pin, u8 A_u8Value)
 {
     switch (A_u8Port)

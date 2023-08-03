@@ -7,7 +7,8 @@
 #define SET_BIT(register,bitNo) (register |= (1<<bitNo))
 #define CLR_BIT(register,bitNo) (register &= ~(1<<bitNo))
 #define GET_BIT(register,bitNo) ((register & ( ~(1<<bitNo) ) ) != register)
-#define TOGGLE_BIT(register,bitNo)  register^ =(1<<bitNo)
+#define TOGGLE_BIT(register,bitNo)  (register ^=(1<<bitNo))
+
 
 /**************ISR**********************/
 // Enable global interrupt using Assembly instructions

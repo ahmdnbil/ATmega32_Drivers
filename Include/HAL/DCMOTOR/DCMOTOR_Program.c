@@ -14,6 +14,7 @@
 #include "./DCMOTOR_Interface.h"
 #include "./DCMOTOR_Configuration.h"
 
+#define F_CPU 8000000UL
 #include <util/delay.h>
 
 // H-bridge using 4npn transistors 2N2222
