@@ -1,64 +1,55 @@
 /*
  * RTOS_Program.c
  *
- *  Created on: Jun 2, 2023
+ *  Created on: Aug 2, 2023
  *      Author: User
  */
 
+/*Libraries files*/
 #include "../../LIB/BIT_MATH.h"
 #include "../../LIB/STD_TYPES.h"
-
-#include "../../MCAL/TIMER0/TIMER0_Interface.h"
-#include "../../MCAL/TIMER0/TIMER0_Configurations.h"
-
-#include "./RTOS_Configurations.h"
+/*MCAL layer*/
+#include "../../MCAL/TIMER1/TIMER1_Interface.h"
+/*OS layer*/
 #include "./RTOS_Interface.h"
 #include "./RTOS_Private.h"
+#include "./RTOS_Configurations.h"
 
-RTOS_TCB RTOS_AOfTasks[RTOS_MAX_NUMBER_OF_TASKS];
 
-void RTOS_voidInit(void)
+TASK_TCB tasks[MAX_NO_OF_TASKS]={};
+
+void RTOS_voidInit()
 {
-    // set callback function for timer0 ctc mode
-    TIMER0_voidCTCSetCallBack(RTOS_voidScheduler);
-    TIMER0_voidInit(TIMER0_NORMAL_MODE, TIMER0_PRESCALER_8, TIMER0_COMPARE_OUTPUT_MODE_NORMAL);
+    //enable the global interrupt
+    sei();
+    //send scheduler to ISR
+    TIMER1_voidSetCallBackCOMA(RTOS_voidStartScheduler);
+    //set ocr1A value with 999 to be 1000us so get 1ms tick time
+    TIMER1_voidSetOCR1AValue(999);
+    //enable interrupt of comapre on match of unit A in timer1
+    TIMER1_voidCompareAInterruptEnable();
+    //configure the timer1
+    TIMER1_voidInit(TIMER1_CTC_OCR1A,TIMER1_PRESCALER_8,TIMER1_COMPARE_OUTPUT_MODE_A_NORMAL,TIMER1_COMPARE_OUTPUT_MODE_B_NORMAL);
 }
-
-void RTOS_voidInitArrayFunctions()
+void RTOS_voidCreateTask(u8 A_u8Priority, u16 A_u16Preiodicity, u16 A_u16FirstDelay, void (*pf)(void))
 {
-    u8 local_u8Counter = 0;
-    for (; local_u8Counter < RTOS_MAX_NUMBER_OF_TASKS; local_u8Counter++)
+    if((A_u8Priority<MAX_NO_OF_TASKS) & (A_u8Priority>=0))
     {
-        RTOS_AOfTasks[local_u8Counter].pf = NULL;
+        tasks[A_u8Priority].periodicity = A_u16Preiodicity;
+        tasks[A_u8Priority].firstdelay = A_u16FirstDelay;
+        tasks[A_u8Priority].pf = pf;
     }
 }
-
-void RTOS_voidCreateTask(u8 A_u8Priority, u16 A_u16Periodicty, u16 A_u16FirstDelay, void (*pf)(void))
+static void RTOS_voidStartScheduler(void)
 {
-    if (A_u8Priority < RTOS_MAX_NUMBER_OF_TASKS && pf != NULL)
+    u8 counter;
+    for(counter=0;counter<MAX_NO_OF_TASKS;counter++)
     {
-        RTOS_AOfTasks[A_u8Priority].FirstDelay = A_u16FirstDelay;
-        RTOS_AOfTasks[A_u8Priority].Periodicty = A_u16Periodicty;
-        RTOS_AOfTasks[A_u8Priority].pf = pf;
-    }
-}
-
-void RTOS_voidScheduler(void)
-{
-    u8 local_u8TaskCounter = 0;
-    for (; local_u8TaskCounter < RTOS_MAX_NUMBER_OF_TASKS; local_u8TaskCounter++)
-    {
-        if (RTOS_AOfTasks[local_u8TaskCounter].FirstDelay == 0)
+        if(tasks[counter].firstdelay == 0)
         {
-            if (RTOS_AOfTasks[local_u8TaskCounter].pf != NULL)
-            {
-                RTOS_AOfTasks[local_u8TaskCounter].pf();
-            }
-            RTOS_AOfTasks[local_u8TaskCounter].FirstDelay = RTOS_AOfTasks[local_u8TaskCounter].Periodicty - 1;
+            tasks[counter].pf();
+            tasks[counter].firstdelay=tasks[counter].periodicity-1;
         }
-        else
-        {
-            RTOS_AOfTasks[local_u8TaskCounter].FirstDelay--;
-        }
+        else tasks[counter].firstdelay--;
     }
 }
