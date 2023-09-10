@@ -25,6 +25,53 @@ void DIO_voidInit()
     DDRD_REG = CONC_BIT(DDRD_PIN7_DIRECTION, DDRD_PIN6_DIRECTION, DDRD_PIN5_DIRECTION, DDRD_PIN4_DIRECTION, DDRD_PIN3_DIRECTION, DDRD_PIN2_DIRECTION, DDRD_PIN1_DIRECTION, DDRD_PIN0_DIRECTION);
 }
 
+void DIO_voidSetPinDirection(u8 A_u8port, u8 A_u8Pin,u8 A_u8PinState)
+{
+    switch (A_u8port)
+    {
+        case PORTA:
+            switch (A_u8PinState)
+            {
+                case PIN_HIGH: SET_BIT(DDRA_REG,A_u8Pin); break;
+                case PIN_LOW:  CLR_BIT(DDRA_REG,A_u8Pin); break;
+            }
+        break;
+        case PORTB:
+            switch (A_u8PinState)
+            {
+                case PIN_HIGH:
+                    SET_BIT(DDRB_REG, A_u8Pin);
+                    break;
+                case PIN_LOW:
+                    CLR_BIT(DDRB_REG, A_u8Pin);
+                    break;
+            }
+        break;
+        case PORTC:
+            switch (A_u8PinState)
+            {
+                case PIN_HIGH:
+                    SET_BIT(DDRC_REG, A_u8Pin);
+                    break;
+                case PIN_LOW:
+                    CLR_BIT(DDRC_REG, A_u8Pin);
+                    break;
+            }
+        break;
+        case PORTD:
+            switch (A_u8PinState)
+            {
+                case PIN_HIGH:
+                    SET_BIT(DDRD_REG, A_u8Pin);
+                    break;
+                case PIN_LOW:
+                    CLR_BIT(DDRD_REG, A_u8Pin);
+                    break;
+            }
+        break;
+    }
+}
+
 u8 DIO_u8GetPinValue(u8 A_u8Port, u8 A_u8Pin)
 {
     u8 local_u8Value;
@@ -116,63 +163,6 @@ void DIO_voidTogglePin(u8 A_u8Port, u8 A_u8Pin)
     }
 }
 
-void DIO_voidSetPinDirection(u8 A_u8Port, u8 A_u8Pin, u8 A_u8Value)
-{
-    switch (A_u8Port)
-    {
-    case PORTA:
-        switch (A_u8Value)
-        {
-        case PIN_OUTPUT:
-            SET_BIT(DDRA_REG, A_u8Pin);
-            break;
-
-        case PIN_INPUT:
-            CLR_BIT(DDRA_REG, A_u8Pin);
-            break;
-        };
-        break;
-
-    case PORTB:
-        switch (A_u8Value)
-        {
-        case PIN_OUTPUT:
-            SET_BIT(DDRB_REG, A_u8Pin);
-            break;
-
-        case PIN_INPUT:
-            CLR_BIT(DDRB_REG, A_u8Pin);
-            break;
-        };
-        break;
-
-    case PORTC:
-        switch (A_u8Value)
-        {
-        case PIN_OUTPUT:
-            SET_BIT(DDRC_REG, A_u8Pin);
-            break;
-
-        case PIN_INPUT:
-            CLR_BIT(DDRC_REG, A_u8Pin);
-            break;
-        };
-        break;
-
-    case PORTD:
-        switch (A_u8Value)
-        {
-        case PIN_OUTPUT:
-            SET_BIT(DDRD_REG, A_u8Pin);
-            break;
-
-        case PIN_INPUT:
-            CLR_BIT(DDRD_REG, A_u8Pin);
-            break;
-        };
-        break;
-    }
-}
 
 void DIO_voidSetPortValue(u8 A_u8Port, u8 A_u8Value)
 {
