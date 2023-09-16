@@ -8,6 +8,9 @@
 #ifndef INCLUDE_MCAL_ADC_ADC_INTERFACE_H_
 #define INCLUDE_MCAL_ADC_ADC_INTERFACE_H_
 
+#include "../../LIB/BIT_MATH.h"
+#include "../../LIB/STD_TYPES.h"
+
 typedef enum
 {
     AREF, 
@@ -55,5 +58,8 @@ u16 ADC_u16GetValueNonBlocking();
 void ADC_voidInterruptEnable(void);
 void ADC_voidInterruptDisable(void);
 void ADC_voidCallBack(void (*ptrToLocal)(void));
+
+// void ADC_Init();
+// u16 ADC_read(u8 num_pin);
 
 #endif /* INCLUDE_MCAL_ADC_ADC_INTERFACE_H_ */
