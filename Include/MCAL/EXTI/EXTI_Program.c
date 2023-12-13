@@ -6,10 +6,7 @@
  */
 
 // libraries
-#include "../../LIB/BIT_MATH.h"
-#include "../../LIB/STD_TYPES.h"
 
-// EXTI
 #include "./EXTI_Interface.h"
 #include "./EXTI_Configuration.h"
 #include "./EXTI_Private.h"

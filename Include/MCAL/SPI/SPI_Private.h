@@ -8,8 +8,20 @@
 #ifndef INCLUDE_MCAL_SPI_SPI_PRIVATE_H_
 #define INCLUDE_MCAL_SPI_SPI_PRIVATE_H_
 
-//SPI Control Register
-#define SPCR (*(volatile u8*) 0x2D)
+/*-------------------------------------section includes---------------------------------------*/
+#include "./../../LIB/mem_map.h"
+
+/*---------------------------------------MACRO Declarations-----------------------------------*/
+#define SPI_CLK_OVER_2 0
+#define SPI_CLK_OVER_4 1
+#define SPI_CLK_OVER_8 2
+#define SPI_CLK_OVER_16 3
+#define SPI_CLK_OVER_32 4
+#define SPI_CLK_OVER_64 5
+#define SPI_CLK_OVER_128 6
+#define SPI2X 0
+#define SPIF 7
+
 //SPI Interrupt Enable
 #define SPIE 7
 //SPI Enable
@@ -40,22 +52,8 @@
 #define SAMPLE_THEN_SETUP_SPI 1
 #define SETUP_THEN_SAMPLE_SPI 0
 
-#define SPI_CLK_OVER_2   0
-#define SPI_CLK_OVER_4   1
-#define SPI_CLK_OVER_8   2
-#define SPI_CLK_OVER_16  3
-#define SPI_CLK_OVER_32  4
-#define SPI_CLK_OVER_64  5
-#define SPI_CLK_OVER_128 6
-
-//SPI Status Register
-#define SPSR (*(volatile u8*) 0x2E)
-#define SPI2X 0
-#define SPIF 7
-
-
-//SPI Data Register
-#define SPDR (*(volatile u8*) 0x2F)
-
+/*---------------------------------------MACRO function declarations--------------------------*/
+/*---------------------------------------Data types-------------------------------------------*/
+/*---------------------------------------function declarations--------------------------------*/
 
 #endif /* INCLUDE_MCAL_SPI_SPI_PRIVATE_H_ */

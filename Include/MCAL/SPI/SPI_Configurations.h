@@ -8,6 +8,8 @@
 #ifndef INCLUDE_MCAL_SPI_SPI_CONFIGURATIONS_H_
 #define INCLUDE_MCAL_SPI_SPI_CONFIGURATIONS_H_
 
+/*-------------------------------------section includes---------------------------------------*/
+/*---------------------------------------MACRO Declarations-----------------------------------*/
 /*
 Choose Data Order
     SPI_LSB_FIRST
@@ -48,5 +50,8 @@ Choose SPI CLK Rate:
 */
 #define SPI_CLK_RATE SPI_CLK_OVER_16
 
+/*---------------------------------------MACRO function declarations--------------------------*/
+/*---------------------------------------Data types-------------------------------------------*/
+/*---------------------------------------function declarations--------------------------------*/
 
 #endif /* INCLUDE_MCAL_SPI_SPI_CONFIGURATIONS_H_ */

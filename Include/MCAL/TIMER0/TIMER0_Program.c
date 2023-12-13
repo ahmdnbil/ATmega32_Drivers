@@ -5,10 +5,6 @@
  *      Author: User
  */
 
-// libraries
-#include "../../LIB/BIT_MATH.h"
-#include "../../LIB/STD_TYPES.h"
-
 // TIMER0
 #include "./TIMER0_Interface.h"
 #include "./TIMER0_Private.h"

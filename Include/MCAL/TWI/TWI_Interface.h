@@ -8,6 +8,13 @@
 #ifndef INCLUDE_MCAL_TWI_TWI_INTERFACE_H_
 #define INCLUDE_MCAL_TWI_TWI_INTERFACE_H_
 
+/*-------------------------------------section includes---------------------------------------*/
+#include "../../LIB/BIT_MATH.h"
+#include "../../LIB/STD_TYPES.h"
+
+/*---------------------------------------MACRO Declarations-----------------------------------*/
+/*---------------------------------------MACRO function declarations--------------------------*/
+/*---------------------------------------Data types-------------------------------------------*/
 typedef enum
 {
     TWI_OK,
@@ -19,6 +26,7 @@ typedef enum
     MR_SLA_ACK_ERROR
 } TWI_STATUS;
 
+/*---------------------------------------function declarations--------------------------------*/
 void TWI_voidInit(u8 A_u8Slave);
 TWI_STATUS TWI_u8Start(void);
 TWI_STATUS TWI_u8SendSlaveAddWrite(u8 A_u8SlaveAdd);

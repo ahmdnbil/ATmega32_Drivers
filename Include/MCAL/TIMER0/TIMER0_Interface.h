@@ -8,6 +8,14 @@
 #ifndef INCLUDE_MCAL_TIMER0_TIMER0_INTERFACE_H_
 #define INCLUDE_MCAL_TIMER0_TIMER0_INTERFACE_H_
 
+/*-------------------------------------section includes---------------------------------------*/
+#include "../../LIB/BIT_MATH.h"
+#include "../../LIB/STD_TYPES.h"
+
+/*---------------------------------------MACRO Declarations-----------------------------------*/
+/*---------------------------------------MACRO function declarations--------------------------*/
+
+/*---------------------------------------Data types-------------------------------------------*/
 typedef enum
 {
     TIMER0_NORMAL_MODE,
@@ -38,8 +46,8 @@ typedef enum
 
 }TIMER0_Compare;
 
+/*---------------------------------------function declarations--------------------------------*/
 void TIMER0_voidInit(TIMER0_Mode mode, TIMER0_Prescaler prescaler, TIMER0_Compare compare);
-
 void TIMER0_voidOverFlowInterruptEnable();
 void TIMER0_voidOverFlowInterruptDisable();
 void TIMER0_voidCompareInterruptEnable();

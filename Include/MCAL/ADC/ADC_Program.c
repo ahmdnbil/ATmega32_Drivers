@@ -5,9 +5,6 @@
  *      Author: User
  */
 
-#include "../../LIB/BIT_MATH.h"
-#include "../../LIB/STD_TYPES.h"
-
 #include "./ADC_Interface.h"
 #include "./ADC_Private.h"
 #include "./ADC_Configurations.h"

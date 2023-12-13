@@ -5,11 +5,7 @@
  *      Author: User
  */
 
-#include "../../LIB/BIT_MATH.h"
-#include "../../LIB/STD_TYPES.h"
-
 #include "./DIO_Private.h"
-#include "./DIO_Configuration.h"
 #include "./DIO_Interface.h"
 
 void DIO_voidInit()

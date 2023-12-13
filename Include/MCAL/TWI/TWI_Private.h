@@ -8,10 +8,10 @@
 #ifndef INCLUDE_MCAL_TWI_TWI_PRIVATE_H_
 #define INCLUDE_MCAL_TWI_TWI_PRIVATE_H_
 
-//TWI Bit Rate Register
-#define TWBR (*(volatile u8*)0x20)
-//TWI Control Register
-#define TWCR (*(volatile u8*)0x56)
+/*-------------------------------------section includes---------------------------------------*/
+#include "./../../LIB/mem_map.h"
+
+/*---------------------------------------MACRO Declarations-----------------------------------*/
 // TWI Interrupt Flag
 #define TWINT 7
 // TWI Enable Acknowledge bit
@@ -24,14 +24,8 @@
 #define TWEN 2
 // TWI interrupt Enable
 #define TWIE 0
-// TWI Status Register
-#define TWSR (*(volatile u8 *)0x21)
 // TWI Prescaler Bits
 #define TWPS0 0
-// TWI Data Register
-#define TWDR (*(volatile u8 *)0x23)
-// TWI Slave Address Register
-#define TWAR (*(volatile u8 *)0x22)
 // TWI General Call Recognition Enable Bit
 #define TWGCE 0
 
@@ -58,4 +52,9 @@
 #define MR_DATA_ACK 0x50
 // Repeated Start
 #define RE_START_ACK 0x10
+
+/*---------------------------------------MACRO function declarations--------------------------*/
+/*---------------------------------------Data types-------------------------------------------*/
+/*---------------------------------------function declarations--------------------------------*/
+
 #endif /* INCLUDE_MCAL_TWI_TWI_PRIVATE_H_ */

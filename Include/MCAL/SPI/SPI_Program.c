@@ -6,8 +6,6 @@
  */
 
 // libraries
-#include "../../LIB/BIT_MATH.h"
-#include "../../LIB/STD_TYPES.h"
 
 #include "./SPI_Private.h"
 #include "./SPI_Interface.h"

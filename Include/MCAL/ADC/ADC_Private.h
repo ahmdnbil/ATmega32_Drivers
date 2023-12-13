@@ -8,36 +8,26 @@
 #ifndef INCLUDE_MCAL_ADC_ADC_PRIVATE_H_
 #define INCLUDE_MCAL_ADC_ADC_PRIVATE_H_
 
-/************************************/
-//ADC Multiplexer Selection Register
-#define ADMUX (*(volatile u8 *) 0x27)
+/*-------------------------------------section includes---------------------------------------*/
+#include "./../../LIB/mem_map.h"
+/*---------------------------------------MACRO Declarations-----------------------------------*/
 #define REFS0 6
-
 #define ADLAR 5
+#define MUX0 0
 #define TRUE  1
 #define FALSE 0
-
-#define MUX0 0
-/************************************/
-
-/************************************/
-//ADC Control Status Register A
-#define ADCSRA (*(volatile u8 *) 0x26)
-//ADC Enable
+// ADC Enable
 #define ADEN  7
-//ADC Start Conversion
+// ADC Start Conversion
 #define ADCS  6
-//ADC Auto Triggering Enable
+// ADC Auto Triggering Enable
 #define ADATE 5
-//ADC Interrupt Flag
+// ADC Interrupt Flag
 #define ADIF  4
-//ADC Interrupt Enable
+// ADC Interrupt Enable
 #define ADIE  3
-//ADC Prescaler Select bit 0
+// ADC Prescaler Select bit 0
 #define ADPS0 0
-
-// Special FunctionIO Register
-#define SFIOR (*(volatile u8 *)0x50)
 // ADC Auto Trigger Source
 #define ADTS0 5
 #define FREE_RUNNING_MODE 0b000
@@ -48,10 +38,8 @@
 #define TIMER1_CTCB_TRIGGER 0b101
 #define TIMER1_OVF_TRIGGER 0b110
 #define TIMER1_CAP_TRIGGER 0b111
-/************************************/
-#define ADCH (*(volatile u8 *) 0x25)
-#define ADCL (*(volatile u8 *) 0x24)
-#define ADCLH (*(volatile u16 *) 0x24)
-/************************************/
 
+/*---------------------------------------MACRO function declarations--------------------------*/
+/*---------------------------------------Data types-------------------------------------------*/
+/*---------------------------------------function declarations--------------------------------*/
 #endif /* INCLUDE_MCAL_ADC_ADC_PRIVATE_H_ */

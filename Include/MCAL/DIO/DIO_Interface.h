@@ -8,7 +8,12 @@
 #ifndef INCLUDE_MCAL_DIO_DIO_INTERFACE_H_
 #define INCLUDE_MCAL_DIO_DIO_INTERFACE_H_
 
+/*-------------------------------------section includes---------------------------------------*/
+#include "../../LIB/BIT_MATH.h"
 #include "../../LIB/STD_TYPES.h"
+#include "./DIO_Configuration.h"
+
+/*---------------------------------------MACRO Declarations-----------------------------------*/
 #define PORTA 0
 #define PORTB 1
 #define PORTC 2
@@ -23,18 +28,10 @@
 #define PIN6 6
 #define PIN7 7
 
-#define PIN_OUTPUT 1
-#define PIN_INPUT 0
+/*---------------------------------------MACRO function declarations--------------------------*/
+/*---------------------------------------Data types-------------------------------------------*/
 
-//in case of being output
-#define PIN_LOW 0
-#define PIN_HIGH 1
-
-//in case of being input
-#define PIN_FLOATING 0
-#define PIN_PULLUP 1
-
-
+/*---------------------------------------function declarations--------------------------------*/
 void DIO_voidInit();
 void DIO_voidSetPinDirection(u8 A_u8port, u8 A_u8Pin, u8 A_u8PinState);
 u8 DIO_u8GetPinValue(u8 A_u8Port, u8 A_u8Pin);

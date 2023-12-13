@@ -5,9 +5,6 @@
  *      Author: User
  */
 
-#include "../../LIB/BIT_MATH.h"
-#include "../../LIB/STD_TYPES.h"
-
 #include "./TWI_Private.h"
 #include "./TWI_Configuration.h"
 #include "./TWI_Interface.h"

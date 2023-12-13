@@ -5,9 +5,6 @@
  *      Author: User
  */
 
-#include "../../LIB/BIT_MATH.h"
-#include "../../LIB/STD_TYPES.h"
-
 #include "./WDT_Configurations.h"
 #include "./WDT_Interface.h"
 #include "./WDT_Private.h"

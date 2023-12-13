@@ -8,16 +8,18 @@
 #ifndef INCLUDE_MCAL_ADC_ADC_INTERFACE_H_
 #define INCLUDE_MCAL_ADC_ADC_INTERFACE_H_
 
+/*-------------------------------------section includes---------------------------------------*/
 #include "../../LIB/BIT_MATH.h"
 #include "../../LIB/STD_TYPES.h"
-
+/*---------------------------------------MACRO Declarations-----------------------------------*/
+/*---------------------------------------MACRO function declarations--------------------------*/
+/*---------------------------------------Data types-------------------------------------------*/
 typedef enum
 {
-    AREF, 
+    AREF,
     AVCC,
-    INTERNAL_REF=3
-}REF_Voltage;
-
+    INTERNAL_REF = 3
+} REF_Voltage;
 /*
     for 8MHz choose prescaler 128 or 64, why?
     in ATmega32, it's mandatory to work between 50kHz and 200kHz
@@ -26,14 +28,13 @@ typedef enum
 typedef enum
 {
     ADC_PRESCALER_2,
-    ADC_PRESCALER_4=2,
+    ADC_PRESCALER_4 = 2,
     ADC_PRESCALER_8,
     ADC_PRESCALER_16,
     ADC_PRESCALER_32,
     ADC_PRESCALER_64,
     ADC_PRESCALER_128,
-}ADC_Prescaler;
-
+} ADC_Prescaler;
 typedef enum
 {
     ADC0,
@@ -46,6 +47,7 @@ typedef enum
     ADC7
 }ADC_Channel;
 
+/*---------------------------------------function declarations--------------------------------*/
 void ADC_voidInit(ADC_Prescaler Prescaler, REF_Voltage referance);
 
 // synchrounous funciton

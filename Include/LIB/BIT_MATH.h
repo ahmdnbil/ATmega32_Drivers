@@ -48,6 +48,8 @@
 
 #define ADC_VECT __vector_16
 
+#define EE_RDY_VECT __vector_17
+
 #define TWI_VECT __vector_19
 
 /**************************************/

@@ -5,9 +5,6 @@
  *      Author: User
  */
 
-#include "../../LIB/BIT_MATH.h"
-#include "../../LIB/STD_TYPES.h"
-
 #include "./TIMER2_Configurations.h"
 #include "./TIMER2_Interface.h"
 #include "./TIMER2_Private.h"

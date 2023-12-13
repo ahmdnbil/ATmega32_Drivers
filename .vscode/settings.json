@@ -69,7 +69,8 @@
     "eeprom_private.h": "c",
     "ultrasonic_private.h": "c",
     "timer2_configurations.h": "c",
-    "keypad_interface.h": "c"
+    "keypad_interface.h": "c",
+    "mem_map.h": "c"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }

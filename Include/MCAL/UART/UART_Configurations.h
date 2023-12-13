@@ -8,10 +8,12 @@
 #ifndef INCLUDE_MCAL_UART_UART_CONFIGURATIONS_H_
 #define INCLUDE_MCAL_UART_UART_CONFIGURATIONS_H_
 
+/*-------------------------------------section includes---------------------------------------*/
+/*---------------------------------------MACRO Declarations-----------------------------------*/
 /*
 choose mode:
-    SYNCH_OPERATION  
-    ASYNCH_OPERATION 
+    SYNCH_OPERATION
+    ASYNCH_OPERATION
 */
 #define USART_MODE ASYNCH_OPERATION
 
@@ -56,4 +58,8 @@ choose stop bit mode:
 
 #define F_CPU 8000000UL
 #define BAUD_RATE 9600
+
+/*---------------------------------------MACRO function declarations--------------------------*/
+/*---------------------------------------Data types-------------------------------------------*/
+/*---------------------------------------function declarations--------------------------------*/
 #endif /* INCLUDE_MCAL_UART_UART_CONFIGURATIONS_H_ */

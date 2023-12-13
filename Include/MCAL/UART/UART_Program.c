@@ -5,9 +5,6 @@
  *      Author: User
  */
 
-#include "../../LIB/BIT_MATH.h"
-#include "../../LIB/STD_TYPES.h"
-
 #include "./UART_Private.h"
 #include "./UART_Configurations.h"
 #include "./UART_Interface.h"

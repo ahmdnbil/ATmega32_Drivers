@@ -8,7 +8,15 @@
 #ifndef INCLUDE_MCAL_UART_UART_INTERFACE_H_
 #define INCLUDE_MCAL_UART_UART_INTERFACE_H_
 
-//initiation UART
+/*-------------------------------------section includes---------------------------------------*/
+#include "../../LIB/BIT_MATH.h"
+#include "../../LIB/STD_TYPES.h"
+
+/*---------------------------------------MACRO Declarations-----------------------------------*/
+/*---------------------------------------MACRO function declarations--------------------------*/
+/*---------------------------------------Data types-------------------------------------------*/
+/*---------------------------------------function declarations--------------------------------*/
+// initiation UART
 void UART_voidInit(void);
 
 //Send data

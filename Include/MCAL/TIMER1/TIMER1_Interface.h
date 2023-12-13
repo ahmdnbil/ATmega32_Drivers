@@ -8,6 +8,13 @@
 #ifndef INCLUDE_MCAL_TIMER1_TIMER1_INTERFACE_H_
 #define INCLUDE_MCAL_TIMER1_TIMER1_INTERFACE_H_
 
+/*-------------------------------------section includes---------------------------------------*/
+#include "../../LIB/BIT_MATH.h"
+#include "../../LIB/STD_TYPES.h"
+
+/*---------------------------------------MACRO Declarations-----------------------------------*/
+/*---------------------------------------MACRO function declarations--------------------------*/
+/*---------------------------------------Data types-------------------------------------------*/
 typedef enum
 {
     TIMER1_NORMAL_MODE,
@@ -64,6 +71,7 @@ typedef enum
     FALLING
 }ICU_Edge_type;
 
+/*---------------------------------------function declarations--------------------------------*/
 void TIMER1_voidInit(TIMER1_Mode mode, TIMER1_Prescaler prescaler, TIMER1_CompareA compareA, TIMER1_CompareB compareB);
 
 void TIMER1_voidInputCaptureEdge(ICU_Edge_type edge);

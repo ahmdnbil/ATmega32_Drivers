@@ -1,17 +1,27 @@
-/*
- * TIMER0_Configurations.h
+/**
+ * @file EEPROM_Interface.h
+ * @author Ahmed Nabil (you@domain.com)
+ * @brief
+ * @version 0.1
+ * @date 2023-11-18
  *
- *  Created on: Dec 4, 2022
- *      Author: User
+ * @copyright Copyright (c) 2023
+ *
  */
 
-#ifndef INCLUDE_MCAL_TIMER0_TIMER0_CONFIGURATIONS_H_
-#define INCLUDE_MCAL_TIMER0_TIMER0_CONFIGURATIONS_H_
+#ifndef _EEPROM_INTERFACE_H_
+#define _EEPROM_INTERFACE_H_
 
 /*-------------------------------------section includes---------------------------------------*/
+#include "./../../LIB/STD_TYPES.h"
+#include "./../../LIB/BIT_MATH.h"
 /*---------------------------------------MACRO Declarations-----------------------------------*/
 /*---------------------------------------MACRO function declarations--------------------------*/
 /*---------------------------------------Data types-------------------------------------------*/
-/*---------------------------------------function declarations--------------------------------*/
 
-#endif /* INCLUDE_MCAL_TIMER0_TIMER0_CONFIGURATIONS_H_ */
+/*---------------------------------------function declarations--------------------------------*/
+void EEPROM_voidWriteByte(u16 address, u8 data);
+u8 EEPROM_voidWriteByte(u16 address);
+void EEPROM_voidSetCallBackEEPROMReady(void (*pf)(void));
+
+#endif

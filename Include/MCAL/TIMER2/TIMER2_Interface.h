@@ -8,6 +8,13 @@
 #ifndef INCLUDE_MCAL_TIMER2_TIMER2_INTERFACE_H_
 #define INCLUDE_MCAL_TIMER2_TIMER2_INTERFACE_H_
 
+/*-------------------------------------section includes---------------------------------------*/
+#include "../../LIB/BIT_MATH.h"
+#include "../../LIB/STD_TYPES.h"
+
+/*---------------------------------------MACRO Declarations-----------------------------------*/
+/*---------------------------------------MACRO function declarations--------------------------*/
+/*---------------------------------------Data types-------------------------------------------*/
 typedef enum
 {
     TIMER2_NORMAL_MODE,   
@@ -36,8 +43,8 @@ typedef enum
     TIMER2_PRESCALER_1024,
 } TIMER2_Prescaler;
 
+/*---------------------------------------function declarations--------------------------------*/
 void TIMER2_voidInit(TIMER2_Mode mode, TIMER2_Compare Compare, TIMER2_Prescaler Prescaler);
-
 void TIMER2_voidSetTCNT2(u8 A_u8Value);
 void TIMER2_voidSetOCR2(u8 A_u8Value);
 
