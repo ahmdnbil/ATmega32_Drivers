@@ -1,8 +1,12 @@
-/*
- * LCD_Private.h
- *
- *  Created on: Oct 13, 2022
- *      Author: User
+/**
+ * @file LCD_Private.h
+ * @author Ahmed Nabil (you@domain.com)
+ * @brief 
+ * @version 0.1
+ * @date 2025-03-29
+ * 
+ * @copyright Copyright (c) 2025
+ * 
  */
 
 #ifndef INCLUDE_HAL_LCD8_LCD8_PRIVATE_H_
